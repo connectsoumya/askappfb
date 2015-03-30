@@ -1,9 +1,3 @@
-<html>
- <head>
-  <title>PHP Test</title>
- </head>
- <body>
-
 <?php
 
 require('../vendor/autoload.php');
@@ -26,6 +20,4 @@ $app->post('/', function() use($app) {
 
 $app->run();
 
-
- </body>
-</html>
+?>
