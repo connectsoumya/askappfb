@@ -17,7 +17,7 @@ $myOutput = <<<MYHTMLSAFEOUTPUT
     });
 
     FB.login(function(){
- 		FB.api('/me/feed', 'post', {message: 'Hello, world!'});
+ 		FB.api('/me/askmmnet', 'post', {message: 'Hello, world!'});
 		}, {scope: 'publish_actions'});
 
     function onLogin(response) {
@@ -33,7 +33,7 @@ FB.getLoginStatus(function(response) {
 
   // Check login status on load, and if the user is
   // already logged in, go directly to the welcome message.
-  
+
   if (response.status == 'connected') {
     onLogin(response);
   } else {
@@ -78,10 +78,6 @@ document.getElementById('publishBtn').onclick = function() {
   return false;
 }  
 </script>
-
-<h3>Related Guides</h3>
-
-<p>Read <a href="https://developers.facebook.com/docs/javascript/quickstart/#graphapi">our quickstart to using the JavaScript SDK for Graph API calls</a> for more info.</p>
 
 <div
   class="fb-like"
