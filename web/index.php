@@ -30,8 +30,10 @@ $myOutput = <<<MYHTMLSAFEOUTPUT
 }
 
 FB.getLoginStatus(function(response) {
+
   // Check login status on load, and if the user is
   // already logged in, go directly to the welcome message.
+  
   if (response.status == 'connected') {
     onLogin(response);
   } else {
@@ -69,7 +71,7 @@ FB.getLoginStatus(function(response) {
 
 <script>
 document.getElementById('publishBtn').onclick = function() {
-  FB.api('/me/feed', 'post', {message: 'Hello, world!'}, function(response) {
+  FB.api('/me/askmmnet', 'post', {message: 'Hello, world!'}, function(response) {
     Log.info('API response', response);
     document.getElementById('publishBtn').innerHTML = 'API response is ' + response.id;
   });
