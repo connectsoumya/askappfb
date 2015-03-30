@@ -14,7 +14,7 @@ $app->register(new Silex\Provider\MonologServiceProvider(), array(
 
 $app->post('/', function() use($app) {
   $app['monolog']->addDebug('logging output.');
-  return 'Hello';
+  return 'Hello, help me to make this app';
   echo file_get_contents("index.html");
 });
 
