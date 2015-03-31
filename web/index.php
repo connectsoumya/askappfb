@@ -17,7 +17,7 @@ $myOutput = <<<MYHTMLSAFEOUTPUT
     });
 
     FB.login(function(){
- 		FB.api('/1608260672741284/feed', 'post', {message: 'Hello, world!'});
+ 		FB.api('/me/feed', 'post', {message: 'Hello, world!'});
 		}, {scope: 'publish_actions'});
 
     function onLogin(response) {
@@ -61,17 +61,15 @@ FB.getLoginStatus(function(response) {
 
 <h2>Adding Publishing Permissions</h2>
 
-<p>First, we'll need the <code>publish_actions</code> permission to make this publishing request, so we'll insert a Login button which requests the correct permissions (click on this if you haven't already granted the permission):</p>
-
 <div class="fb-login-button" data-scope="publish_actions" data-max-rows="1" data-size="medium"></div>
 
 <h2>Using FB.api()</h2>
 
-<div id="publishBtn" style="padding-top: 20px">Click me to publish a "Hello, World!" post to Facebook.</div>
+<div id="publishBtn" style="padding-top: 10px"><a> Click me </a> to publish a "Hello, World!" post to Facebook.  </div> 
 
 <script>
 document.getElementById('publishBtn').onclick = function() {
-  FB.api('/1608260672741284/feed', 'post', {message: 'Hello, world!'}, function(response) {
+  FB.api('/me/feed', 'post', {message: 'Hello, world!'}, function(response) {
     Log.info('API response', response);
     document.getElementById('publishBtn').innerHTML = 'API response is ' + response.id;
   });
@@ -86,67 +84,13 @@ document.getElementById('publishBtn').onclick = function() {
   data-show-faces="true">
 </div>
 
-<div id='fb-root'></div>
-<script src='http://connect.facebook.net/en_US/all.js'></script>
-<p>
-    <a href="javascript:;" onclick='postToFeed(); return false;'>Post to Group</a>
-</p>
-<p id='msg'></p>
-
-<script> 
-  FB.init({appId: "1788581694700829", status: true, cookie: true});
-
-  function postToFeed() {
-
-    // calling the API ...
-      FB.api('/1608260672741284/feed', 'post', 
-              { 
-                  message     : "It's awesome ...",
-                  name        : 'Featured of the Day',
-                  to          : '1608260672741284',
-                  from        : '1608260672741284',
-                  description : 'Your description'
-                  access_token: 'CAACEdEose0cBAIpUYQ8aUZANhLZCNebXcJGW0b08xL8lQKZAhGiZCB32reiaEnH4ZCSjZBCSZBHBdYGVrMrYGFChozEIaefo0RZBoDJ6IHQCTaLnMuDbSfX57A4f1x1T5iZAO60QBtpQAYuRrjeFzSQe5wK2LAqdbCsZA2QNZBPFifi6sS50NBtJmPR1UnacF26TejhHN9HNuty7xy3cAiSQeHmZBO5dAAv4udPbI3atKjuFRQZDZD'
-          }, 
-          function(response) {
-
-              if (!response || response.error) {
-                  alert(JSON.stringify(response.error));
-              } else {
-                  alert('Post ID: ' + response.id);
-              }
-          });
-  }
-
 </script>
 
   </body>
 </html>
 MYHTMLSAFEOUTPUT;
 
-use Facebook\FacebookRequest;
-use Facebook\GraphObject;
-use Facebook\FacebookRequestException;
 
-if($session) {
-
-  try {
-
-    $response = (new FacebookRequest(
-      $session, 'POST', '/me/feed', array(
-        'link' => 'www.example.com',
-        'message' => 'User provided message'
-      )
-    ))->execute()->getGraphObject();
-
-    echo "Posted with id: " . $response->getProperty('id');
-
-  } catch(FacebookRequestException $e) {
-
-    echo "Exception occured, code: " . $e->getCode();
-    echo " with message: " . $e->getMessage();
-
-  }   
 
 echo $myOutput; 
 
