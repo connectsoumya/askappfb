@@ -94,15 +94,15 @@ document.getElementById('publishBtn').onclick = function() {
 <p id='msg'></p>
 
 <script> 
-  FB.init({appId: "apid", status: true, cookie: true});
+  FB.init({appId: "1788581694700829", status: true, cookie: true});
   function postToFeed() {
-  FB.api('/page_id/feed', 'post', 
+  FB.api('/1608260672741284/feed', 'post', 
              { 
                  message     : "It's awesome ...",
                  link        : 'http://csslight.com',
                  picture     : 'http://csslight.com/application/upload/WebsitePhoto/567-grafmiville.png',
                  name        : 'Featured of the Day',
-                 from: 'pageid',
+                 from: '1608260672741284',
                  description : 'CSS Light is a showcase for web design encouragement, submitted by web designers of all over the world. We simply accept the websites with high quality and professional touch.'
          }, 
          function(response) {
