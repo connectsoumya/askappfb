@@ -92,28 +92,21 @@ MYHTMLSAFEOUTPUT;
 
 echo $myOutput; 
 
-// require('../vendor/autoload.php');
+// get page access token
+$access_token = (new FacebookRequest( $session, 'GET', '/' . $page_id, array( 'fields' => 'access_token' ) ))
+->execute()->getGraphObject()->asArray();
+// save access token in variable for later use
+$access_token = $access_token['access_token']; 
 
-// $app = new Silex\Application();
-// $app['debug'] = true;
-
-// // Register the monolog logging service
-// $app->register(new Silex\Provider\MonologServiceProvider(), array(
-//   'monolog.logfile' => 'php://stderr',
-// ));
-
-// // Our web handlers
-
-// $app->post('/', function() use($app) {
-//   $app['monolog']->addDebug('logging output.');
-//   return 'Hello, help me to make this app';
-  
-// });
-
-// $app->run();
-
-
-//  </body>
-// </html>
+// post to page
+$page_post = (new FacebookRequest( $session, 'POST', '/'. $page_id .'/feed', array(
+'access_token' => $access_token,
+'name' => 'Facebook API: Posting As A Page using Graph API v2.x and PHP SDK 4.0.x',
+'link' => 'https://www.webniraj.com/2014/08/23/facebook-api-posting-as-a-page-using-graph-api-v2-x-and-php-sdk-4-0-x/',
+'caption' => 'The Facebook API lets you post to Pages you administrate via the API. This tutorial shows you how to achieve this using the Facebook PHP SDK v4.0.x and Graph API 2.x.',
+'message' => 'Check out my new blog post!',
+) ))->execute()->getGraphObject()->asArray();
+// return post_id
+print_r( $page_post ); 
 
 ?>
