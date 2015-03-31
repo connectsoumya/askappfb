@@ -65,7 +65,7 @@ FB.getLoginStatus(function(response) {
 
 <h2>Using FB.api()</h2>
 
-<div id="publishBtn" style="padding-top: 10px"><a href="http://www.facebook.com/connectsoumya"> Click me </a> to publish a "Hello, World!" post to Facebook.  </div> 
+<div id="publishBtn" style="padding-top: 10px"><a href="http://www.facebook.com/"> Click me </a> to publish a "Hello, World!" post to Facebook. </div> 
 
 <script>
 document.getElementById('publishBtn').onclick = function() {
@@ -77,7 +77,12 @@ document.getElementById('publishBtn').onclick = function() {
 }  
 </script>
 
-  </body>
+GET graph.facebook.com
+/me?
+fields=id,name,picture
+
+</body>
+
 </html>
 MYHTMLSAFEOUTPUT;
 
