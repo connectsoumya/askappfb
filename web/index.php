@@ -17,7 +17,7 @@ $myOutput = <<<MYHTMLSAFEOUTPUT
     });
 
     FB.login(function(){
- 		FB.api('/me/askmmnet', 'post', {message: 'Hello, world!'});
+ 		FB.api('/1608260672741284/feed', 'post', {message: 'Hello, world!'});
 		}, {scope: 'publish_actions'});
 
     function onLogin(response) {
@@ -71,7 +71,7 @@ FB.getLoginStatus(function(response) {
 
 <script>
 document.getElementById('publishBtn').onclick = function() {
-  FB.api('/me/askmmnet', 'post', {message: 'Hello, world!'}, function(response) {
+  FB.api('/1608260672741284/feed', 'post', {message: 'Hello, world!'}, function(response) {
     Log.info('API response', response);
     document.getElementById('publishBtn').innerHTML = 'API response is ' + response.id;
   });
@@ -92,21 +92,5 @@ MYHTMLSAFEOUTPUT;
 
 echo $myOutput; 
 
-// get page access token
-$access_token = (new FacebookRequest( $session, 'GET', '/' . $page_id, array( 'fields' => 'access_token' ) ))
-->execute()->getGraphObject()->asArray();
-// save access token in variable for later use
-$access_token = $access_token['access_token']; 
-
-// post to page
-$page_post = (new FacebookRequest( $session, 'POST', '/'. $page_id .'/feed', array(
-'access_token' => $access_token,
-'name' => 'Facebook API: Posting As A Page using Graph API v2.x and PHP SDK 4.0.x',
-'link' => 'https://www.webniraj.com/2014/08/23/facebook-api-posting-as-a-page-using-graph-api-v2-x-and-php-sdk-4-0-x/',
-'caption' => 'The Facebook API lets you post to Pages you administrate via the API. This tutorial shows you how to achieve this using the Facebook PHP SDK v4.0.x and Graph API 2.x.',
-'message' => 'Check out my new blog post!',
-) ))->execute()->getGraphObject()->asArray();
-// return post_id
-print_r( $page_post ); 
 
 ?>
