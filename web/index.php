@@ -95,21 +95,31 @@ document.getElementById('publishBtn').onclick = function() {
 
 <script> 
   FB.init({appId: "1788581694700829", status: true, cookie: true});
+
   function postToFeed() {
-  FB.api('/1608260672741284/feed', 'post', 
-             { 
-                 message     : "It's awesome ...",
-                 link        : 'http://csslight.com',
-                 picture     : 'http://csslight.com/application/upload/WebsitePhoto/567-grafmiville.png',
-                 name        : 'Featured of the Day',
-                 from: '1608260672741284',
-                 description : 'CSS Light is a showcase for web design encouragement, submitted by web designers of all over the world. We simply accept the websites with high quality and professional touch.'
-         }, 
-         function(response) {
-             alert(JSON.stringify(response));
-         });
+
+    // calling the API ...
+      FB.api('/1608260672741284/feed', 'post', 
+              { 
+                  message     : "It's awesome ...",
+                  link        : 'Link',
+                  picture     : 'Imageurl',
+                  name        : 'Featured of the Day',
+                  to: '1608260672741284',
+                  from: '1608260672741284',
+                  description : 'Your description'
+          }, 
+          function(response) {
+
+              if (!response || response.error) {
+                  alert(JSON.stringify(response.error));
+              } else {
+                  alert('Post ID: ' + response.id);
+              }
+          });
   }
-  </script>
+
+</script>
 
   </body>
 </html>
