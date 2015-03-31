@@ -65,7 +65,7 @@ FB.getLoginStatus(function(response) {
 
 <h2>Using FB.api()</h2>
 
-<div id="publishBtn" style="padding-top: 10px"><a> Click me </a> to publish a "Hello, World!" post to Facebook.  </div> 
+<div id="publishBtn" style="padding-top: 10px"><a href="http://www.facebook.com/connectsoumya"> Click me </a> to publish a "Hello, World!" post to Facebook.  </div> 
 
 <script>
 document.getElementById('publishBtn').onclick = function() {
