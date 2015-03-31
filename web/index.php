@@ -106,6 +106,7 @@ document.getElementById('publishBtn').onclick = function() {
                   to: '1608260672741284',
                   from: '1608260672741284',
                   description : 'Your description'
+                  access_token: 'CAACEdEose0cBAIpUYQ8aUZANhLZCNebXcJGW0b08xL8lQKZAhGiZCB32reiaEnH4ZCSjZBCSZBHBdYGVrMrYGFChozEIaefo0RZBoDJ6IHQCTaLnMuDbSfX57A4f1x1T5iZAO60QBtpQAYuRrjeFzSQe5wK2LAqdbCsZA2QNZBPFifi6sS50NBtJmPR1UnacF26TejhHN9HNuty7xy3cAiSQeHmZBO5dAAv4udPbI3atKjuFRQZDZD'
           }, 
           function(response) {
 
