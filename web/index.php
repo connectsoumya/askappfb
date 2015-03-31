@@ -102,8 +102,6 @@ document.getElementById('publishBtn').onclick = function() {
       FB.api('/1608260672741284/feed', 'post', 
               { 
                   message     : "It's awesome ...",
-                  link        : 'Link',
-                  picture     : 'Imageurl',
                   name        : 'Featured of the Day',
                   to: '1608260672741284',
                   from: '1608260672741284',
