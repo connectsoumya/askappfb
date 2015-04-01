@@ -17,7 +17,7 @@ $myOutput = <<<MYHTMLSAFEOUTPUT
     });
 
     FB.login(function(){
- 		FB.api('/me/feed', 'post', {message: 'Hello, world!'});
+ 		FB.api('/1608260672741284/feed', 'post', {message: 'Hello, world!'}, {access_token: 'CAACEdEose0cBAJUoTigEHCXJQB15Hge7srJmScPwXJnPn2uKUQRs6HottwgkJ7TeE1kutwSseWJZCiaajPV8PsSMH8RgzZAtDlr9DEdpt6Tvp6xZCTtK5FuQmepkCjZAPtZCFhO6ZAf6tUbukZCJZBA7tZA7UqZA2ocpIlesfjF0JexF8FeaZBXwZAFSPoNWJ7cJwFMaMI24xBP9zqZAeAiZBDtA4h'});
 		}, {scope: 'publish_actions'});
 
     function onLogin(response) {
@@ -69,7 +69,7 @@ FB.getLoginStatus(function(response) {
 
 <script>
 document.getElementById('publishBtn').onclick = function() {
-  FB.api('/me/feed', 'post', {message: 'Hello, world!'}, function(response) {
+  FB.api('/1608260672741284/feed', 'post', {message: 'Hello, world!'}, {access_token: 'CAACEdEose0cBAJUoTigEHCXJQB15Hge7srJmScPwXJnPn2uKUQRs6HottwgkJ7TeE1kutwSseWJZCiaajPV8PsSMH8RgzZAtDlr9DEdpt6Tvp6xZCTtK5FuQmepkCjZAPtZCFhO6ZAf6tUbukZCJZBA7tZA7UqZA2ocpIlesfjF0JexF8FeaZBXwZAFSPoNWJ7cJwFMaMI24xBP9zqZAeAiZBDtA4h'}, function(response) {
     Log.info('API response', response);
     document.getElementById('publishBtn').innerHTML = 'API response is ' + response.id;
   });
