@@ -16,8 +16,19 @@ $myOutput = <<<MYHTMLSAFEOUTPUT
       version    : 'v2.3'
     });
 
+// modification starts here
+  
+  function onLogin(response) {  
+    FB.api('me?fields=posts.limit(2){message}', function(qstn) {
+      var question = document.getElementById('fb-welcome');
+      question.innerHTML = 'qstn.posts.limit(2){message}';
+  });
+}
+
+// modification ends here
+
     FB.login(function(){
- 		FB.api('/1608260672741284/feed', 'post', {message: 'Hello, world!', access_token: 'CAAZAatKCQfR0BAFPZA2iybnKTxlZBZBspYyGHfvdZB0T10KrD0KSiJ1y8PUkp527stTYCPCnP3nUa0UaSOqZClqpPXneL1gwFZAgF4cV8kGCKg0NoZCE8YHLvTN2nBdjBFeBqnATDt45ghZCj6T0Jk4fOnbM1h01whvdEpLZBajkjxiFGruVIeIHq9MmZCFRRfWmSMZD'});
+ 		FB.api('/1608260672741284/feed', 'post', {message: 'question.innerHTML', access_token: 'CAAZAatKCQfR0BAFPZA2iybnKTxlZBZBspYyGHfvdZB0T10KrD0KSiJ1y8PUkp527stTYCPCnP3nUa0UaSOqZClqpPXneL1gwFZAgF4cV8kGCKg0NoZCE8YHLvTN2nBdjBFeBqnATDt45ghZCj6T0Jk4fOnbM1h01whvdEpLZBajkjxiFGruVIeIHq9MmZCFRRfWmSMZD'});
 		}, {scope: 'publish_actions'});
 
     function onLogin(response) {
