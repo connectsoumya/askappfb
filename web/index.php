@@ -17,7 +17,7 @@ $myOutput = <<<MYHTMLSAFEOUTPUT
     });
 
     FB.login(function(){
- 		FB.api('/1608260672741284/feed', 'post', {message: 'Hello, world!', access_token: 'CAACEdEose0cBAJUoTigEHCXJQB15Hge7srJmScPwXJnPn2uKUQRs6HottwgkJ7TeE1kutwSseWJZCiaajPV8PsSMH8RgzZAtDlr9DEdpt6Tvp6xZCTtK5FuQmepkCjZAPtZCFhO6ZAf6tUbukZCJZBA7tZA7UqZA2ocpIlesfjF0JexF8FeaZBXwZAFSPoNWJ7cJwFMaMI24xBP9zqZAeAiZBDtA4h'});
+ 		FB.api('/1608260672741284/feed', 'post', {message: 'Hello, world!', access_token: 'CAACEdEose0cBAAISNZBkqC6C22qZBVTVrQCZALxwX0JxYUNfdqr1PS5XaZBSEweVYMPfiutJLFJ0ZADFbJRlNYRxy963xZCPu5pZC4j2Aaq92swYriKD0D546K9FUYwBuuZByLSE1ZCWPDZCr4HcZClZCJk142D4QfPpOS6SK6WE9SBQyC7hlgRQp0sQIQSZBPko2c2AiAa0qgX3eVLFcZCz5UuOv8'});
 		}, {scope: 'publish_actions'});
 
     function onLogin(response) {
@@ -69,7 +69,7 @@ FB.getLoginStatus(function(response) {
 
 // <script>
 // document.getElementById('publishBtn').onclick = function() {
-//   FB.api('/1608260672741284/feed', 'post', {message: 'Hello, world!', access_token: 'CAACEdEose0cBAJUoTigEHCXJQB15Hge7srJmScPwXJnPn2uKUQRs6HottwgkJ7TeE1kutwSseWJZCiaajPV8PsSMH8RgzZAtDlr9DEdpt6Tvp6xZCTtK5FuQmepkCjZAPtZCFhO6ZAf6tUbukZCJZBA7tZA7UqZA2ocpIlesfjF0JexF8FeaZBXwZAFSPoNWJ7cJwFMaMI24xBP9zqZAeAiZBDtA4h'}, function(response) {
+//   FB.api('/1608260672741284/feed', 'post', {message: 'Hello, world!', access_token: 'CAACEdEose0cBAAISNZBkqC6C22qZBVTVrQCZALxwX0JxYUNfdqr1PS5XaZBSEweVYMPfiutJLFJ0ZADFbJRlNYRxy963xZCPu5pZC4j2Aaq92swYriKD0D546K9FUYwBuuZByLSE1ZCWPDZCr4HcZClZCJk142D4QfPpOS6SK6WE9SBQyC7hlgRQp0sQIQSZBPko2c2AiAa0qgX3eVLFcZCz5UuOv8'}, function(response) {
 //     Log.info('API response', response);
 //     document.getElementById('publishBtn').innerHTML = 'API response is ' + response.id;
 //   });
