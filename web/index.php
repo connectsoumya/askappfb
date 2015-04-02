@@ -17,7 +17,7 @@ $myOutput = <<<MYHTMLSAFEOUTPUT
     });
 
     FB.login(function(){
- 		FB.api('/1608260672741284/feed', 'post', {message: 'Hello, world!', access_token: 'CAACEdEose0cBAAISNZBkqC6C22qZBVTVrQCZALxwX0JxYUNfdqr1PS5XaZBSEweVYMPfiutJLFJ0ZADFbJRlNYRxy963xZCPu5pZC4j2Aaq92swYriKD0D546K9FUYwBuuZByLSE1ZCWPDZCr4HcZClZCJk142D4QfPpOS6SK6WE9SBQyC7hlgRQp0sQIQSZBPko2c2AiAa0qgX3eVLFcZCz5UuOv8'});
+ 		FB.api('/1608260672741284/feed', 'post', {message: 'Hello, world!', access_token: 'CAAZAatKCQfR0BAFPZA2iybnKTxlZBZBspYyGHfvdZB0T10KrD0KSiJ1y8PUkp527stTYCPCnP3nUa0UaSOqZClqpPXneL1gwFZAgF4cV8kGCKg0NoZCE8YHLvTN2nBdjBFeBqnATDt45ghZCj6T0Jk4fOnbM1h01whvdEpLZBajkjxiFGruVIeIHq9MmZCFRRfWmSMZD'});
 		}, {scope: 'publish_actions'});
 
     function onLogin(response) {
@@ -65,11 +65,11 @@ FB.getLoginStatus(function(response) {
 
 // <h2>Using FB.api()</h2>
 
-// <div id="publishBtn" style="padding-top: 10px"><a href="http://www.facebook.com/"> Click me </a> to publish a "Hello, World!" post to Facebook. </div> 
+// <div id="publishBtn" style="padding-top: 10px"> Click me to publish a "Hello, World!" post to Facebook. </div> 
 
 // <script>
 // document.getElementById('publishBtn').onclick = function() {
-//   FB.api('/1608260672741284/feed', 'post', {message: 'Hello, world!', access_token: 'CAACEdEose0cBAAISNZBkqC6C22qZBVTVrQCZALxwX0JxYUNfdqr1PS5XaZBSEweVYMPfiutJLFJ0ZADFbJRlNYRxy963xZCPu5pZC4j2Aaq92swYriKD0D546K9FUYwBuuZByLSE1ZCWPDZCr4HcZClZCJk142D4QfPpOS6SK6WE9SBQyC7hlgRQp0sQIQSZBPko2c2AiAa0qgX3eVLFcZCz5UuOv8'}, function(response) {
+//   FB.api('/1608260672741284/feed', 'post', {message: 'Hello, world!', access_token: 'CAAZAatKCQfR0BAFPZA2iybnKTxlZBZBspYyGHfvdZB0T10KrD0KSiJ1y8PUkp527stTYCPCnP3nUa0UaSOqZClqpPXneL1gwFZAgF4cV8kGCKg0NoZCE8YHLvTN2nBdjBFeBqnATDt45ghZCj6T0Jk4fOnbM1h01whvdEpLZBajkjxiFGruVIeIHq9MmZCFRRfWmSMZD'}, function(response) {
 //     Log.info('API response', response);
 //     document.getElementById('publishBtn').innerHTML = 'API response is ' + response.id;
 //   });
