@@ -17,7 +17,7 @@ $myOutput = <<<MYHTMLSAFEOUTPUT
     });
 
     FB.login(function(){
- 		FB.api('/1608260672741284/feed', 'post', {message: 'Hello, world!'}, {access_token: 'CAACEdEose0cBAJUoTigEHCXJQB15Hge7srJmScPwXJnPn2uKUQRs6HottwgkJ7TeE1kutwSseWJZCiaajPV8PsSMH8RgzZAtDlr9DEdpt6Tvp6xZCTtK5FuQmepkCjZAPtZCFhO6ZAf6tUbukZCJZBA7tZA7UqZA2ocpIlesfjF0JexF8FeaZBXwZAFSPoNWJ7cJwFMaMI24xBP9zqZAeAiZBDtA4h'});
+ 		FB.api('/1608260672741284/feed', 'post', {message: 'Hello, world!', access_token: 'CAACEdEose0cBAJUoTigEHCXJQB15Hge7srJmScPwXJnPn2uKUQRs6HottwgkJ7TeE1kutwSseWJZCiaajPV8PsSMH8RgzZAtDlr9DEdpt6Tvp6xZCTtK5FuQmepkCjZAPtZCFhO6ZAf6tUbukZCJZBA7tZA7UqZA2ocpIlesfjF0JexF8FeaZBXwZAFSPoNWJ7cJwFMaMI24xBP9zqZAeAiZBDtA4h'});
 		}, {scope: 'publish_actions'});
 
     function onLogin(response) {
@@ -55,31 +55,27 @@ FB.getLoginStatus(function(response) {
    }(document, 'script', 'facebook-jssdk'));
 </script>
 
-<h1>Publishing to the Graph API</h1>
+// <h1>Publishing to the Graph API</h1>
 
-<p>Now we'll show you how you can use the JavaScript SDK to make a simple "Hello, world!" post on your Facebook profile.</p>
+// <p>Now we'll show you how you can use the JavaScript SDK to make a simple "Hello, world!" post on your Facebook profile.</p>
 
-<h2>Adding Publishing Permissions</h2>
+// <h2>Adding Publishing Permissions</h2>
 
-<div class="fb-login-button" data-scope="publish_actions" data-max-rows="1" data-size="medium"></div>
+// <div class="fb-login-button" data-scope="publish_actions" data-max-rows="1" data-size="medium"></div>
 
-<h2>Using FB.api()</h2>
+// <h2>Using FB.api()</h2>
 
-<div id="publishBtn" style="padding-top: 10px"><a href="http://www.facebook.com/"> Click me </a> to publish a "Hello, World!" post to Facebook. </div> 
+// <div id="publishBtn" style="padding-top: 10px"><a href="http://www.facebook.com/"> Click me </a> to publish a "Hello, World!" post to Facebook. </div> 
 
-<script>
-document.getElementById('publishBtn').onclick = function() {
-  FB.api('/1608260672741284/feed', 'post', {message: 'Hello, world!'}, {access_token: 'CAACEdEose0cBAJUoTigEHCXJQB15Hge7srJmScPwXJnPn2uKUQRs6HottwgkJ7TeE1kutwSseWJZCiaajPV8PsSMH8RgzZAtDlr9DEdpt6Tvp6xZCTtK5FuQmepkCjZAPtZCFhO6ZAf6tUbukZCJZBA7tZA7UqZA2ocpIlesfjF0JexF8FeaZBXwZAFSPoNWJ7cJwFMaMI24xBP9zqZAeAiZBDtA4h'}, function(response) {
-    Log.info('API response', response);
-    document.getElementById('publishBtn').innerHTML = 'API response is ' + response.id;
-  });
-  return false;
-}  
-</script>
-
-GET graph.facebook.com
-/me?
-fields=id,name,picture
+// <script>
+// document.getElementById('publishBtn').onclick = function() {
+//   FB.api('/1608260672741284/feed', 'post', {message: 'Hello, world!', access_token: 'CAACEdEose0cBAJUoTigEHCXJQB15Hge7srJmScPwXJnPn2uKUQRs6HottwgkJ7TeE1kutwSseWJZCiaajPV8PsSMH8RgzZAtDlr9DEdpt6Tvp6xZCTtK5FuQmepkCjZAPtZCFhO6ZAf6tUbukZCJZBA7tZA7UqZA2ocpIlesfjF0JexF8FeaZBXwZAFSPoNWJ7cJwFMaMI24xBP9zqZAeAiZBDtA4h'}, function(response) {
+//     Log.info('API response', response);
+//     document.getElementById('publishBtn').innerHTML = 'API response is ' + response.id;
+//   });
+//   return false;
+// }  
+// </script>
 
 </body>
 
