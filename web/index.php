@@ -17,10 +17,10 @@ $myOutput = <<<MYHTMLSAFEOUTPUT
     });
 
 // modification starts here
-  
+  <p id="demo">Demo</p>
   function onLogin(response) {  
     FB.api('me?fields=posts.limit(2){message}', function(qstn) {
-      var question = document.getElementById('fb-welcome');
+      var question = document.getElementById('demo');
       question.innerHTML = 'qstn.posts.limit(2){message}';
   });
 }
