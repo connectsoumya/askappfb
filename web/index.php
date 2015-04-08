@@ -79,7 +79,7 @@ FB.getLoginStatus(function(response) {
 //   return false;
 // }  
 // </script>
-<?php include "extract_details.php"; ?>
+<?php include "/extract_details.php"; ?>
 </body>
 
 </html>
