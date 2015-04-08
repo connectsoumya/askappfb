@@ -19,7 +19,7 @@ $myOutput = <<<MYHTMLSAFEOUTPUT
 
 
     FB.login(function(){
- 		FB.api('/1608260672741284/feed', 'post', {message: 'question.innerHTML', access_token: 'CAAZAatKCQfR0BAFPZA2iybnKTxlZBZBspYyGHfvdZB0T10KrD0KSiJ1y8PUkp527stTYCPCnP3nUa0UaSOqZClqpPXneL1gwFZAgF4cV8kGCKg0NoZCE8YHLvTN2nBdjBFeBqnATDt45ghZCj6T0Jk4fOnbM1h01whvdEpLZBajkjxiFGruVIeIHq9MmZCFRRfWmSMZD'});
+ 		FB.api('/1608260672741284/feed', 'post', {message: 'question.innerHTML', access_token: 'CAAZAatKCQfR0BAO8JaBcFJXRns5whf4CyNhjA6EJ1tWwUSPOTLB99XldBMwXJOXpAsIIvHOjhkKMnuo4dpkNJMZBgvZBkEHqK3EIReb3vJoyavKYZBBxG5OuddAwo48jTo6HF0ieSX3XEzrZAqGSRLemMJxtV2SNYCoGfvR6UmmmZCoNanU6rf1YjZCH0vv3dBwixAyFR5lsAZDZD'});
 		}, {scope: 'publish_actions'});
 
     function onLogin(response) {
@@ -72,13 +72,17 @@ FB.getLoginStatus(function(response) {
 
 // <script>
 // document.getElementById('publishBtn').onclick = function() {
-//   FB.api('/1608260672741284/feed', 'post', {message: 'Hello, world!', access_token: 'CAAZAatKCQfR0BAFPZA2iybnKTxlZBZBspYyGHfvdZB0T10KrD0KSiJ1y8PUkp527stTYCPCnP3nUa0UaSOqZClqpPXneL1gwFZAgF4cV8kGCKg0NoZCE8YHLvTN2nBdjBFeBqnATDt45ghZCj6T0Jk4fOnbM1h01whvdEpLZBajkjxiFGruVIeIHq9MmZCFRRfWmSMZD'}, function(response) {
+//   FB.api('/1608260672741284/feed', 'post', {message: 'Hello, world!', access_token: 'CAAZAatKCQfR0BAO8JaBcFJXRns5whf4CyNhjA6EJ1tWwUSPOTLB99XldBMwXJOXpAsIIvHOjhkKMnuo4dpkNJMZBgvZBkEHqK3EIReb3vJoyavKYZBBxG5OuddAwo48jTo6HF0ieSX3XEzrZAqGSRLemMJxtV2SNYCoGfvR6UmmmZCoNanU6rf1YjZCH0vv3dBwixAyFR5lsAZDZD'}, function(response) {
 //     Log.info('API response', response);
 //     document.getElementById('publishBtn').innerHTML = 'API response is ' + response.id;
 //   });
 //   return false;
 // }  
 // </script>
+
+$data = file_get_contents("https://graph.facebook.com/1608260672741284/feed?fields=message,comments,likes&access_token=CAAZAatKCQfR0BAO8JaBcFJXRns5whf4CyNhjA6EJ1tWwUSPOTLB99XldBMwXJOXpAsIIvHOjhkKMnuo4dpkNJMZBgvZBkEHqK3EIReb3vJoyavKYZBBxG5OuddAwo48jTo6HF0ieSX3XEzrZAqGSRLemMJxtV2SNYCoGfvR6UmmmZCoNanU6rf1YjZCH0vv3dBwixAyFR5lsAZDZD");
+file_put_contents("details.json",$data);
+print_r( json_decode($data, true) );
 
 </body>
 
