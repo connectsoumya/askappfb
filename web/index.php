@@ -82,7 +82,6 @@ MYHTMLSAFEOUTPUT;
   $data = file_get_contents($url);
   file_put_contents("details.json",$data);
   print_r( json_decode($data, true) );
-  echo $data
 
   // $url="https://graph.facebook.com/1608260672741284/feed?fields=message,comments,likes&access_token=CAAZAatKCQfR0BADrIHdqaYu4u4aiPo2Ighq3vqMmqghiAkp1L84m8CLSh6Fla70OfqfdNBHfLZBXVTFf4rlF5XjEkqVDKD3qBCBbglMwA8kOzNiCRrqj787UtCRXYgmi9e7sBrZBs1rGBQ3omZBkMCttiogdfM3MiX3SdJZBvmwarMXpKKOEo8U8pk81CjY4ZD";
   // $data = file_get_contents($url);
