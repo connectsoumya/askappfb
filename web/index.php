@@ -90,7 +90,7 @@ ob_end_clean();
   // file_put_contents("details.json",$data);
   // print_r( json_decode($data, true) );
 
-// echo $myOutput; 
+echo $myOutput; 
 
 
 // <div id="publishBtn" style="padding-top: 10px"> Click me to publish a "Hello, World!" post to Facebook. </div> 
