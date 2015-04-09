@@ -97,6 +97,5 @@ MYHTMLSAFEOUTPUT;
   $data = file_get_contents($result);
   file_put_contents("details.json",$data);
   print_r( json_decode($data, true) );
-  echo $data
 echo $myOutput; 
 ?>
