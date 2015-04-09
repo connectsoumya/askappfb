@@ -71,15 +71,7 @@ FB.getLoginStatus(function(response) {
 
 <div id="publishBtn" style="padding-top: 10px"> Click me to publish a "Hello, World!" post to Facebook. </div> 
 
-<script>
-document.getElementById('publishBtn').onclick = function() {
-  FB.api('/1608260672741284/feed', 'post', {message: 'Hello, world!', access_token: 'CAAZAatKCQfR0BAO8JaBcFJXRns5whf4CyNhjA6EJ1tWwUSPOTLB99XldBMwXJOXpAsIIvHOjhkKMnuo4dpkNJMZBgvZBkEHqK3EIReb3vJoyavKYZBBxG5OuddAwo48jTo6HF0ieSX3XEzrZAqGSRLemMJxtV2SNYCoGfvR6UmmmZCoNanU6rf1YjZCH0vv3dBwixAyFR5lsAZDZD'}, function(response) {
-    Log.info('API response', response);
-    document.getElementById('publishBtn').innerHTML = 'API response is ' + response.id;
-  });
-  return false;
-}  
-</script>
+
 
 </body>
 
@@ -94,4 +86,15 @@ MYHTMLSAFEOUTPUT;
   file_put_contents("details.json",$data);
   print_r( json_decode($data, true) );
 echo $myOutput; 
+
+// <script>
+// document.getElementById('publishBtn').onclick = function() {
+//   FB.api('/1608260672741284/feed', 'post', {message: 'Hello, world!', access_token: 'CAAZAatKCQfR0BAO8JaBcFJXRns5whf4CyNhjA6EJ1tWwUSPOTLB99XldBMwXJOXpAsIIvHOjhkKMnuo4dpkNJMZBgvZBkEHqK3EIReb3vJoyavKYZBBxG5OuddAwo48jTo6HF0ieSX3XEzrZAqGSRLemMJxtV2SNYCoGfvR6UmmmZCoNanU6rf1YjZCH0vv3dBwixAyFR5lsAZDZD'}, function(response) {
+//     Log.info('API response', response);
+//     document.getElementById('publishBtn').innerHTML = 'API response is ' + response.id;
+//   });
+//   return false;
+// }  
+// </script>
+
 ?>
