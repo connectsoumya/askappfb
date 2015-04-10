@@ -20,7 +20,7 @@ $myOutput = <<<MYHTMLSAFEOUTPUT
 
     FB.login(function(){
 
-      FB.api('/1608260672741284/feed', 'post', {message: 'Hello, World !!!', access_token: 'CAAZAatKCQfR0BANacLZBh68l9l5cJArxItfvcOp8cEzjcs2E5acFz9HU5qKwAvZCi6Dp6KbdmwxKVDvizkE6IvgpVutuTzuvAOIWgUl978v7XYghoJoTeCcMhNgLbJUQxGNeM1OpBMlvS41lFSperx6oy9fv61qptOkMCTXrB663kLsQNCDAZBZAFBbjZA7ZCY2rJzsQy9tX9snNjIobh6n'});
+      FB.api('/1608260672741284/feed', 'post', {message: 'Hello, World !!!', access_token: 'CAAZAatKCQfR0BAKBKsqEPkzZB96GKDCb4mCncxPZAnQqgJu0e50ZAyazkLRw4wELT3qaP5DzYl4hE14VLKyfnbyzZCXPPs8TRzTE8y78Fcz7Lwip3rsZA6pLSQFLPQjUIJMtkLTd8iTDCmyER3Frh1tGE5pMZBhZC2KStyzAZCN3giO2jDmsbwOzfj02MugRZCD0t4CRPHhbZCAnQZDZD'});
 		}, {scope: 'publish_actions'});
 
     function onLogin(response) {
