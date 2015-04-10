@@ -16,6 +16,16 @@ $myOutput = <<<MYHTMLSAFEOUTPUT
       version    : 'v2.3'
     });
 
+    
+    var body = 'Reading JS SDK documentation';
+    FB.api('/me/feed', 'post', { message: body }, function(response) {
+    if (!response || response.error) {
+    alert('Error occured');
+    } else {
+    alert('Post ID: ' + response.id);
+    }
+  });
+
 
 
     FB.login(function(){
