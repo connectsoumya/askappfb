@@ -3,7 +3,7 @@
 $myOutput = <<<MYHTMLSAFEOUTPUT
 <?xml version="1.0"?>
 <html>
-  <title>PHP Example</title>
+  <title>Ask Facebook App</title>
   <body>
 
 <h1 id="fb-welcome"></h1>
@@ -20,7 +20,7 @@ $myOutput = <<<MYHTMLSAFEOUTPUT
 
     FB.login(function(){
 
-      FB.api('/1608260672741284/feed', 'post', {message: 'Hello, World !!!', access_token: 'CAAZAatKCQfR0BAPEEDI0MevoQ2TBUiqtCmCY4lEc8ZBZACJJPVi3X3bSgD0qQa04GlWh9cZAY5FyEj4VvZBSzzLIDfgMQ0ZBZCjFYRVOOeRWauuKtu7xRt6b9d7cu0heqrw0EDAdZBmA7pUc0TNHaw5gJdl84QvPZAFJMzYB1JZAIuqU6ZCO7DvZAmW2H9TdL64qx8r0V3Hfvppi2RCw4LPKQt0q'});
+      FB.api('/1608260672741284/feed', 'post', {message: 'Hello, World !!!', access_token: 'CAAZAatKCQfR0BAFoJcVe3HDaGlsZAZBvRAD4vfWPh5HR1fsSk2Vpo3mVrBA8koMTvsmEgZCPFT7kuJiCZCNfykyc1Yei1TAOvq735w9ctQIiuDM1iHVrtYbT2s3N8bi5xiNAKw9RZBLGLSPduqWrayF0CsebBVHGgQELSZCZCQbcHnJZAz2e3491Nzt8IogRT4SfwWZAytMS76hD0cRcrQWAEx'});
 		}, {scope: 'publish_actions'});
 
     function onLogin(response) {
