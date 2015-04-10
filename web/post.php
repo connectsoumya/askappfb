@@ -1,6 +1,43 @@
-
-
 <?php  
+
+FacebookSession::setDefaultApplication('1788581694700829', 'd95dde9374fe7d3715007c27db6a74a4');
+$helper = new FacebookRedirectLoginHelper('your redirect URL here');
+$loginUrl = $helper->getLoginUrl();
+$helper = new FacebookRedirectLoginHelper();
+try {
+  $session = $helper->getSessionFromRedirect();
+} catch(FacebookRequestException $ex) {
+  // When Facebook returns an error
+} catch(\Exception $ex) {
+  // When validation fails or other local issues
+}
+if ($session) {
+  // Logged in
+}
+
+$helper = new FacebookCanvasLoginHelper();
+try {
+  $session = $helper->getSession();
+} catch(FacebookRequestException $ex) {
+  // When Facebook returns an error
+} catch(\Exception $ex) {
+  // When validation fails or other local issues
+}
+if ($session) {
+  // Logged in
+}
+
+$helper = new FacebookJavaScriptLoginHelper();
+try {
+  $session = $helper->getSession();
+} catch(FacebookRequestException $ex) {
+  // When Facebook returns an error
+} catch(\Exception $ex) {
+  // When validation fails or other local issues
+}
+if ($session) {
+  // Logged in
+}
 
 use Facebook\FacebookRequest;
 use Facebook\GraphObject;
