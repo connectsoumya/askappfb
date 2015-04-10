@@ -3,13 +3,16 @@
 <?php  // Html safe containers
 
 	// $url1=$_GET['https://graph.facebook.com/oauth/access_token?grant_type=fb_exchange_token&client_id=1788581694700829&client_secret=d95dde9374fe7d3715007c27db6a74a4&fb_exchange_token=CAAZAatKCQfR0BAEAh2e2fN72FIQ1BzKNE0x6TcbMqjQotvu3ESAN9rTmBH3GRwk7C2H9QguqdreBfgdG3CwRXugetfW6dohJApCxU9OONAiD81TEbSpAEouV7Pdl90hzlhs46RdDk6BW8BGrKwHwg5HTdEuZBq8gXtmZATMqOuC4gEiJMH9Odc5j9EJcdEE58VrdZBrttQZDZD'];
-	$url=file_get_contents("https://graph.facebook.com/oauth/access_token?grant_type=fb_exchange_token&client_id=1788581694700829&client_secret=d95dde9374fe7d3715007c27db6a74a4&fb_exchange_token=CAAZAatKCQfR0BAEAh2e2fN72FIQ1BzKNE0x6TcbMqjQotvu3ESAN9rTmBH3GRwk7C2H9QguqdreBfgdG3CwRXugetfW6dohJApCxU9OONAiD81TEbSpAEouV7Pdl90hzlhs46RdDk6BW8BGrKwHwg5HTdEuZBq8gXtmZATMqOuC4gEiJMH9Odc5j9EJcdEE58VrdZBrttQZDZD");
-	$token = file_get_contents($url);
-	$fbinit="https://graph.facebook.com/1608260672741284/feed?fields=message,comments,likes&";
-	$result = $fbinit . $token;
-	$data = file_get_contents($result);
+	
+	$url="https://graph.facebook.com/1608260672741284/feed?fields=message,comments,likes&access_token=CAAZAatKCQfR0BAPEEDI0MevoQ2TBUiqtCmCY4lEc8ZBZACJJPVi3X3bSgD0qQa04GlWh9cZAY5FyEj4VvZBSzzLIDfgMQ0ZBZCjFYRVOOeRWauuKtu7xRt6b9d7cu0heqrw0EDAdZBmA7pUc0TNHaw5gJdl84QvPZAFJMzYB1JZAIuqU6ZCO7DvZAmW2H9TdL64qx8r0V3Hfvppi2RCw4LPKQt0q";
+	$data = file_get_contents($url);
 	file_put_contents("details.json",$data);
 	print_r( json_decode($data, true) );
 	echo $data
 
-?> 
+
+// https://graph.facebook.com/oauth/client_code?access_token=CAAZAatKCQfR0BAKTiyA83iQ1DOhl7l48ks4DEIlZARewMLYsZAnYTD2SLeUbI63t2gXvGZCgpN6Dm5x2lLZCZA86pLGIzYYEzZAo9DoXkt9MQlLCtV0wGYSW8Jk9i2EwkZC0Lir9hBXN1V1iIfL9WBnZCvXayEmhcRgS1DHPoNAu429hpTZAhQpboGjpmhqAownF4dY5AvoLbJTJGVVqiUt87N&expires=5111842&client_secret=d95dde9374fe7d3715007c27db6a74a4&redirect_uri=https://askappfb.herokuapp.com&client_id=1788581694700829
+
+// https://graph.facebook.com/oauth/access_token?code=AQCflzAkVkEmwNlbk-IA6KsQlWtJVhWe9jxvSCRD6a6tfP4LapO_JP31Rrs4ARBqPelaumlL3DjK3-UxIit_fxiokEI5fOogJuJCjXBBMtwXwJ4UGxj1Fv5R_p9WCkMHEg3eoNq6xkIX6kW-OR47NowHf2Pnbrc3DZzLPGf5HhmJCAilSWPXlVpu3fgcG9aRJyXno2L05Oo2CCYoir85YDRsVd4kx2Q9as7iyBPxlLaisp81eZNWijmbPmRVm3xV8-jkVQH8peoSNdoqrTfqQkBhVCs_N_uBOtE0kwGNYdFpFaUry_HkaV38xYiM-R-mGaE&client_id=1788581694700829&redirect_uri=https://askappfb.herokuapp.com
+
+?>
