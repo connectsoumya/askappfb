@@ -69,8 +69,8 @@ FB.getLoginStatus(function(response) {
 
 <h2>Using FB.api()</h2>
 
-<a href="https://askappfb.herokuapp.com/post.php">Post questions here </a>
-
+<a href="https://askappfb.herokuapp.com/details.json">View the JSON file (This link is for u Pritam)</a>
+<a href="https://askappfb.herokuapp.com/details_test.json">View the JSON file (This link is for me)</a>
 </body>
 
 </html>
@@ -81,7 +81,7 @@ MYHTMLSAFEOUTPUT;
 ob_start();
   $url="https://graph.facebook.com/1608260672741284/feed?fields=message,comments,likes&access_token=CAAZAatKCQfR0BANacLZBh68l9l5cJArxItfvcOp8cEzjcs2E5acFz9HU5qKwAvZCi6Dp6KbdmwxKVDvizkE6IvgpVutuTzuvAOIWgUl978v7XYghoJoTeCcMhNgLbJUQxGNeM1OpBMlvS41lFSperx6oy9fv61qptOkMCTXrB663kLsQNCDAZBZAFBbjZA7ZCY2rJzsQy9tX9snNjIobh6n";
   $data = file_get_contents($url);
-  file_put_contents("details.json",$data);
+  file_put_contents("details_test.json",$data);
   print_r( json_decode($data, true) );
 ob_end_clean();
 
