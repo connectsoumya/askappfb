@@ -69,7 +69,7 @@ FB.getLoginStatus(function(response) {
 
 <h2>Using FB.api()</h2>
 
-<a href="https://askappfb.herokuapp.com/details.json">View the JSON file (This link is for u Pritam)</a>
+<a href="https://askappfb.herokuapp.com/details.json">View the JSON file (This link is for u Pritam)</a><br>
 <a href="https://askappfb.herokuapp.com/details_test.json">View the JSON file (This link is for me)</a>
 </body>
 
