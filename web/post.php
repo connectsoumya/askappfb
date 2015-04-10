@@ -2,8 +2,12 @@
 
 FacebookSession::setDefaultApplication('1788581694700829', 'd95dde9374fe7d3715007c27db6a74a4');
 
-$helper = new FacebookRedirectLoginHelper('https://askappfb.herokuapp.com');
-$loginUrl = $helper->getLoginUrl();
+// $helper = new FacebookRedirectLoginHelper('https://askappfb.herokuapp.com');
+// $loginUrl = $helper->getLoginUrl();
+
+$helper = new FacebookRedirectLoginHelper($redirect_url, $appId = NULL, $appSecret = NULL);
+echo '<a href="' . $helper->getLoginUrl() . '">Login with Facebook</a>';
+
 
 $helper = new FacebookRedirectLoginHelper();
 try {
