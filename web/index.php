@@ -69,7 +69,7 @@ FB.getLoginStatus(function(response) {
 
 <h2>Using FB.api()</h2>
 
-
+<a href="https://askappfb.herokuapp.com/post.php">Post questions here </a>
 
 </body>
 
