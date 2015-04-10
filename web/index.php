@@ -79,13 +79,13 @@ FB.getLoginStatus(function(response) {
 MYHTMLSAFEOUTPUT;
 
 ob_start();
-  $url="https://graph.facebook.com/1608260672741284/feed?fields=message,comments,likes&access_token=CAAZAatKCQfR0BAPEEDI0MevoQ2TBUiqtCmCY4lEc8ZBZACJJPVi3X3bSgD0qQa04GlWh9cZAY5FyEj4VvZBSzzLIDfgMQ0ZBZCjFYRVOOeRWauuKtu7xRt6b9d7cu0heqrw0EDAdZBmA7pUc0TNHaw5gJdl84QvPZAFJMzYB1JZAIuqU6ZCO7DvZAmW2H9TdL64qx8r0V3Hfvppi2RCw4LPKQt0q";
+  $url="https://graph.facebook.com/1608260672741284/feed?fields=message,comments,likes&access_token=CAAZAatKCQfR0BANacLZBh68l9l5cJArxItfvcOp8cEzjcs2E5acFz9HU5qKwAvZCi6Dp6KbdmwxKVDvizkE6IvgpVutuTzuvAOIWgUl978v7XYghoJoTeCcMhNgLbJUQxGNeM1OpBMlvS41lFSperx6oy9fv61qptOkMCTXrB663kLsQNCDAZBZAFBbjZA7ZCY2rJzsQy9tX9snNjIobh6n";
   $data = file_get_contents($url);
   file_put_contents("details.json",$data);
   print_r( json_decode($data, true) );
 ob_end_clean();
 
-  $posting=$_POST['https://graph.facebook.com/1608260672741284/feed?message=Hi&access_token=CAAZAatKCQfR0BANacLZBh68l9l5cJArxItfvcOp8cEzjcs2E5acFz9HU5qKwAvZCi6Dp6KbdmwxKVDvizkE6IvgpVutuTzuvAOIWgUl978v7XYghoJoTeCcMhNgLbJUQxGNeM1OpBMlvS41lFSperx6oy9fv61qptOkMCTXrB663kLsQNCDAZBZAFBbjZA7ZCY2rJzsQy9tX9snNjIobh6n']
+  
   // $url="https://graph.facebook.com/1608260672741284/feed?fields=message,comments,likes&access_token=CAAZAatKCQfR0BADrIHdqaYu4u4aiPo2Ighq3vqMmqghiAkp1L84m8CLSh6Fla70OfqfdNBHfLZBXVTFf4rlF5XjEkqVDKD3qBCBbglMwA8kOzNiCRrqj787UtCRXYgmi9e7sBrZBs1rGBQ3omZBkMCttiogdfM3MiX3SdJZBvmwarMXpKKOEo8U8pk81CjY4ZD";
   // $data = file_get_contents($url);
   // file_put_contents("details.json",$data);
