@@ -23,7 +23,7 @@ $myOutput = <<<MYHTMLSAFEOUTPUT
     
 
     var body = 'Reading JS SDK documentation';
-    FB.api('/me/feed', 'post', { message: body }, function(response) {
+    FB.api('/me/feed', 'post', { message: body, access_token: 'CAAZAatKCQfR0BAKYvGNqpoEPASNZCbAZAB5jOXUeP9qZAdlU9oSqwHcVb0mNvqZCYfbLPZAcZAeGT7B7D3w0bXKZCt9S8WwO4ZCAJq3zJvfo04EMqljQRhnd1YsQN45at72HuAJOEDaW6WfJGvGgmjl0ZArZBp1bzsbXiVU2DZB2pZBemqs7nAOQVh8wZBnXsZAoAG1vMVXyI9RAZC3y5L1XIPzOq8ZCpJRI5ZCZBulAZBAyZBRLSeHwDhgZDZD' }, function(response) {
     if (!response || response.error) {
     alert('Error occured');
     } else {
