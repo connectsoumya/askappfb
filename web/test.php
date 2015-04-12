@@ -19,7 +19,7 @@ $myOutput = <<<MYHTMLSAFEOUTPUT
     FB.login(function(){
         var xmlhttp;
 		xmlhttp=new XMLHttpRequest();
-		xmlhttp.open("GET", "data.txt", true);
+		xmlhttp.open("GET", "https://askappfb.herokuapp.com/data.txt", true);
 		xmlhttp.send();
 
       FB.api('/1608260672741284/feed', 'post', {message: xmlhttp , access_token: 'CAACEdEose0cBAIE88W74ZB3NG81gt2E60V5wjiJdr5fjRzwYUL4QZBKIT8iPpZAnIoLQY2ZAtpDSfrEk2NsZBFPbbRvwqo3LmRpp3U1a6pjvvqWCZC5ZAppY9akYmNrztVsZBm2kktT6AE3kVst0PkjZBA1IX1Q3tJzEb4plu01pFb4ddgk4rxyzvERoq9IeREv0Eqn8r728x9AZDZD'});
