@@ -57,16 +57,11 @@ FB.getLoginStatus(function(response) {
    }(document, 'script', 'facebook-jssdk'));
 </script>
 
-
-<h1>Publishing to the Graph API</h1>
-
-<p>Now we'll show you how you can use the JavaScript SDK to make a simple "Hello, world!" post on your Facebook profile.</p>
-
-<h2>Adding Publishing Permissions</h2>
+<h2>Please login to Facebook</h2>
 
 <div class="fb-login-button" data-scope="publish_actions" data-max-rows="1" data-size="medium"></div>
 
-<h2>Using FB.api()</h2>
+<p>Now we'll show you how you can use the JavaScript SDK to make a simple "Hello, world!" post on your Facebook profile.</p>
 
 <a href="https://askappfb.herokuapp.com/details.json">View the JSON file (This link is for u Pritam)</a><br>
 <a href="https://askappfb.herokuapp.com/details_test.json">View the JSON file (This link is for me)</a>
