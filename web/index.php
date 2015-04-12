@@ -114,10 +114,10 @@ if(isset($p->comments))
 
 {
 $obj1=$p->comments->data;
-echo "The message is  ";
+echo 'Question: ';
 
 echo $p->message.' ';
-echo "The comments are   ";
+echo 'Answer: ';
 foreach($obj1 as $p1)
 {
   
@@ -133,7 +133,7 @@ foreach($obj1 as $p1)
   
   
 }
-echo "The best answer is   ";
+echo 'Best Answer:  ';
 echo $a[array_search(max($b), $b)].'<br />';
 }
 }
