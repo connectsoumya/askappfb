@@ -1,5 +1,55 @@
 <?php
 
+<script type="text/javascript">
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '1788581694700829',
+      xfbml      : true,
+      version    : 'v2.3'
+    });
+
+    FB.login(function(){
+      var body = 'Hello, World !!!';
+      FB.api('/1608260672741284/feed', 'post', {message: body, access_token: 'CAAZAatKCQfR0BAKBKsqEPkzZB96GKDCb4mCncxPZAnQqgJu0e50ZAyazkLRw4wELT3qaP5DzYl4hE14VLKyfnbyzZCXPPs8TRzTE8y78Fcz7Lwip3rsZA6pLSQFLPQjUIJMtkLTd8iTDCmyER3Frh1tGE5pMZBhZC2KStyzAZCN3giO2jDmsbwOzfj02MugRZCD0t4CRPHhbZCAnQZDZD'});
+    }, {scope: 'publish_actions'});
+
+
+    function onLogin(response) {
+      if (response.status == 'connected') {
+      FB.api('/me?fields=first_name', function(data) {
+        var welcomeBlock = document.getElementById('fb-welcome');
+        welcomeBlock.innerHTML = 'Hello, ' + data.first_name + '!';
+    });
+  }
+}
+
+FB.getLoginStatus(function(response) {
+
+  // Check login status on load, and if the user is
+  // already logged in, go directly to the welcome message.
+
+  if (response.status == 'connected') {
+    onLogin(response);
+  } else {
+    // Otherwise, show Login dialog first.
+    FB.login(function(response) {
+      onLogin(response);
+    }, {scope: 'user_friends, email'});
+  }
+});
+
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+
+
 $myOutput = <<<MYHTMLSAFEOUTPUT
 <?xml version="1.0"?>
 <html>
@@ -141,7 +191,6 @@ echo $a[array_search(max($b), $b)].'<br />';
 }
 }
 
-echo $myOutput; 
 
 
 // <div id="publishBtn" style="padding-top: 10px"> Click me to publish a "Hello, World!" post to Facebook. </div> 
