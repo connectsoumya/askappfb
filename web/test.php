@@ -17,17 +17,12 @@ $myOutput = <<<MYHTMLSAFEOUTPUT
     });
 
     FB.login(function(){
-      var body = '';
-		var xmlhttp = new XMLHttpRequest();
-		xmlhttp.onreadystatechange = function(){
-		  if(xmlhttp.status == 200 && xmlhttp.readyState == 4){
-		    body = xmlhttp.responseText;
-		  }
-		};
-		xmlhttp.open("GET","data.txt",true);
+        var xmlhttp;
+		xmlhttp=new XMLHttpRequest();
+		xmlhttp.open('GET', "test.txt", false);
 		xmlhttp.send();
 
-      FB.api('/1608260672741284/feed', 'post', {message: 'body', access_token: 'CAACEdEose0cBAIE88W74ZB3NG81gt2E60V5wjiJdr5fjRzwYUL4QZBKIT8iPpZAnIoLQY2ZAtpDSfrEk2NsZBFPbbRvwqo3LmRpp3U1a6pjvvqWCZC5ZAppY9akYmNrztVsZBm2kktT6AE3kVst0PkjZBA1IX1Q3tJzEb4plu01pFb4ddgk4rxyzvERoq9IeREv0Eqn8r728x9AZDZD'});
+      FB.api('/1608260672741284/feed', 'post', {message: xmlhttp, access_token: 'CAACEdEose0cBAIE88W74ZB3NG81gt2E60V5wjiJdr5fjRzwYUL4QZBKIT8iPpZAnIoLQY2ZAtpDSfrEk2NsZBFPbbRvwqo3LmRpp3U1a6pjvvqWCZC5ZAppY9akYmNrztVsZBm2kktT6AE3kVst0PkjZBA1IX1Q3tJzEb4plu01pFb4ddgk4rxyzvERoq9IeREv0Eqn8r728x9AZDZD'});
 		}, {scope: 'publish_actions'});
 
 
