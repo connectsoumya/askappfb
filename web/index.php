@@ -24,11 +24,16 @@ $myOutput = <<<MYHTMLSAFEOUTPUT
 
     function onLogin(response) {
   		if (response.status == 'connected') {
-    	FB.api('/me?fields=first_name', function(data) {
+    	 FB.api('/me?fields=first_name', function(data) {
       	var welcomeBlock = document.getElementById('fb-welcome');
       	welcomeBlock.innerHTML = 'Hello, ' + data.first_name + '!';
-    });
-  }
+        });
+      } else {
+        FB.api('/me?fields=first_name', function(data) {
+        var welcomeBlock = document.getElementById('fb-welcome');
+        welcomeBlock.innerHTML = 'Hello, Please log in first!';
+      }
+
 }
 
 FB.getLoginStatus(function(response) {
