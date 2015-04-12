@@ -28,9 +28,7 @@ $myOutput = <<<MYHTMLSAFEOUTPUT
       	var welcomeBlock = document.getElementById('fb-welcome');
       	welcomeBlock.innerHTML = 'Hello, ' + data.first_name + '!';
         });
-      } else {
-        document.write('Please login to Facebook first.');
-      }
+      } 
     }
 
 FB.getLoginStatus(function(response) {
