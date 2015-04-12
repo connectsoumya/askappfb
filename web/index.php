@@ -104,14 +104,9 @@ if($json_o->data!=null)
 foreach($json_o->data as $p)
 {
 
-
-
-
-
 {if(isset($p->message))
 
 if(isset($p->comments))
-
 
 {
 $obj1=$p->comments->data;
@@ -122,8 +117,7 @@ echo 'Answer: ';
 foreach($obj1 as $p1)
 {
   
-  
-  echo $p1->message.'=';
+  echo $p1->message.'Votes=';
   echo $p1->like_count.'   ';
   $a[$i]=$p1->message;
   $b[$i]=$p1->like_count;
