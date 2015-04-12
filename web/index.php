@@ -110,14 +110,14 @@ if(isset($p->comments))
 
 {
 $obj1=$p->comments->data;
-echo 'Question: ';
+echo '<br />Question: ';
 
 echo $p->message.' ';
-echo 'Answer: ';
+echo '<br />Answer: ';
 foreach($obj1 as $p1)
 {
   
-  echo $p1->message.'Votes=';
+  echo $p1->message.' Votes=';
   echo $p1->like_count.'   ';
   $a[$i]=$p1->message;
   $b[$i]=$p1->like_count;
@@ -128,7 +128,7 @@ foreach($obj1 as $p1)
   
   
 }
-echo 'Best Answer:  ';
+echo '<br />Best Answer:  ';
 echo $a[array_search(max($b), $b)].'<br />';
 }
 }
