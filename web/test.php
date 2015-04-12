@@ -1,6 +1,6 @@
 <?php
 
-<script type="text/javascript">
+echo '<script type="text/javascript">
   window.fbAsyncInit = function() {
     FB.init({
       appId      : '1788581694700829',
@@ -47,7 +47,7 @@ FB.getLoginStatus(function(response) {
      js.src = "//connect.facebook.net/en_US/sdk.js";
      fjs.parentNode.insertBefore(js, fjs);
    }(document, 'script', 'facebook-jssdk'));
-</script>
+</script>';
 
 
 $myOutput = <<<MYHTMLSAFEOUTPUT
