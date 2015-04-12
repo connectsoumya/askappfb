@@ -29,7 +29,7 @@ $myOutput = <<<MYHTMLSAFEOUTPUT
       	welcomeBlock.innerHTML = 'Hello, ' + data.first_name + '!';
         });
       } else {
-        document.write('Please login to Facebook first.'),
+        document.write('Please login to Facebook first.');
       }
     }
 
