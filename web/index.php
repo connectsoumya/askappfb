@@ -3,11 +3,22 @@
 $myOutput = <<<MYHTMLSAFEOUTPUT
 <?xml version="1.0"?>
 <html>
+<head>
+<script src="http://code.jquery.com/jquery-latest.js">
+  <script type="text/javascript">
+    setInterval("my_function();",5000);
+    function my_function(){
+      $('#refresh').load(location.href + ' #posting');
+    }
+  </script>
+</head>
   <title>Ask Facebook App</title>
   <body>
 
 <h1 id="fb-welcome"></h1>
 
+<div id="refresh"></div>
+<div id="posting">
 <script>
   window.fbAsyncInit = function() {
     FB.init({
@@ -18,7 +29,7 @@ $myOutput = <<<MYHTMLSAFEOUTPUT
 
     FB.login(function(){
       var body = 'Hello, World !!!';
-      FB.api('/1608260672741284/feed', 'post', {message: body, access_token: 'CAACEdEose0cBAIE88W74ZB3NG81gt2E60V5wjiJdr5fjRzwYUL4QZBKIT8iPpZAnIoLQY2ZAtpDSfrEk2NsZBFPbbRvwqo3LmRpp3U1a6pjvvqWCZC5ZAppY9akYmNrztVsZBm2kktT6AE3kVst0PkjZBA1IX1Q3tJzEb4plu01pFb4ddgk4rxyzvERoq9IeREv0Eqn8r728x9AZDZD'});
+      FB.api('/1608260672741284/feed', 'post', {message: body, access_token: 'CAAZAatKCQfR0BAP5s0hiSXpVZA1wo5Cwu6jhP5W3kMS10nBwZAiTO9HJHZBKwhX4McLKfcYwsJtEZC9TRUQQCRyyKj9TYFnp9ZC82JmlnY0pXlFzdt73ZAoaZCUvVehJ5ZAC5XlXEXooyMgrU3nyJRfTrvOzWGRecNflvZCSM7njGGIUgZCgvpiyfYgxPLJ4R8uFxTFErZARgZCrvsAgZAkv4Mjf9G'});
 		}, {scope: 'publish_actions'});
 
 
@@ -56,6 +67,7 @@ FB.getLoginStatus(function(response) {
      fjs.parentNode.insertBefore(js, fjs);
    }(document, 'script', 'facebook-jssdk'));
 </script>
+</div>
 
 <div class="fb-login-button" data-scope="publish_actions" data-max-rows="1" data-size="medium"></div>
 
