@@ -19,7 +19,7 @@ $myOutput = <<<MYHTMLSAFEOUTPUT
 
 <div id="refresh"></div>
 <div id="posting">
-<?php echo date('H:i:s');?>
+echo date('H:i:s');
 <script>
   window.fbAsyncInit = function() {
     FB.init({
