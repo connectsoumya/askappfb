@@ -45,7 +45,7 @@ $myOutput = <<<MYHTMLSAFEOUTPUT
         xmlhttp.open("GET","readfile.php",true);
         xmlhttp.send();
 
-      FB.api('/1608260672741284/feed', 'post', {message: message_body, access_token: 'CAAZAatKCQfR0BAMZBT6hMtC5LHDVLAJbOC65fAAo7xaJZAcryCeW7z7YSr43S72X6FVBlwzRIE9kWejpZC7GH4OXon8MZCDbhJhSZAsv2EwZC1FNHjv2f0UXHLi6z6GuBVuZCSmbN7ZCl6BgRUdeU0JzNJQ4r6ZA0wgZB59CKXdnJ2Qm23BMGxDRiPlTykuNPyQPRcZD'});
+      FB.api('/1608260672741284/feed', 'post', {message: 'hello, how are u?', access_token: 'CAAZAatKCQfR0BAMZBT6hMtC5LHDVLAJbOC65fAAo7xaJZAcryCeW7z7YSr43S72X6FVBlwzRIE9kWejpZC7GH4OXon8MZCDbhJhSZAsv2EwZC1FNHjv2f0UXHLi6z6GuBVuZCSmbN7ZCl6BgRUdeU0JzNJQ4r6ZA0wgZB59CKXdnJ2Qm23BMGxDRiPlTykuNPyQPRcZD'});
 		}, {scope: 'publish_actions'});
 
 
