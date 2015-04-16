@@ -17,7 +17,9 @@ $myOutput = <<<MYHTMLSAFEOUTPUT
 
 <h1 id="fb-welcome"></h1>
 
-
+<div id="refresh"></div>
+<div id="posting">
+<?php echo date('H:i:s');?>
 <script>
   window.fbAsyncInit = function() {
     FB.init({
@@ -66,7 +68,7 @@ FB.getLoginStatus(function(response) {
      fjs.parentNode.insertBefore(js, fjs);
    }(document, 'script', 'facebook-jssdk'));
 </script>
-
+</div>
 
 <div class="fb-login-button" data-scope="publish_actions" data-max-rows="1" data-size="medium"></div>
 
