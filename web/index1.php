@@ -57,7 +57,7 @@ var a;
 		alert(message_body);
 		
 
-      FB.api('/1608260672741284/feed', 'post', {message: message_body, access_token: 'CAAZAatKCQfR0BAMZBT6hMtC5LHDVLAJbOC65fAAo7xaJZAcryCeW7z7YSr43S72X6FVBlwzRIE9kWejpZC7GH4OXon8MZCDbhJhSZAsv2EwZC1FNHjv2f0UXHLi6z6GuBVuZCSmbN7ZCl6BgRUdeU0JzNJQ4r6ZA0wgZB59CKXdnJ2Qm23BMGxDRiPlTykuNPyQPRcZD'});
+      FB.api('/1608260672741284/feed', 'post', {message: message_body, access_token: 'CAAZAatKCQfR0BAJsMWEx8RSBBispTObFCTTmg1UJzPRRt0pgUfRhpUCtZCa024qXZCFW7xcM3SRlM78sL2ik8XZB2GdesWDhxJW8NuBOmZCJuCNSxpuCa61sYDE1GVZBqSOYbsx1P0PMGer7tlbRSsnMhdG46F3BkwZAZCj5Wm43O5ST5mp9A9VlAZBsba1tVnOksXvIfZCPPiUGmOLYtpBLXX'});
 		}, {scope: 'publish_actions'});
 
 
