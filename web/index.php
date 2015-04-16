@@ -40,16 +40,16 @@ function readfilefunc()
         xmlhttp.send();
 }
 
-FB.login(function(){
-  FB.api('/1608260672741284/feed', 'post', {message: message_body, access_token: 'CAAZAatKCQfR0BAGpxDtvc0AZBlQFRzl59Byvk6MdVR6wtZABv2cl8vHy5UvLGFpGIZCBtniVLsPc8ElHaPwFYarBRjBZAT9sF7Ypqh5b0H01wuCVoi6JjVUvFfH3kBi9lyngcOoq2BwyzF27V8mF3UFwV3A27qqZBvd9Ql1bqFczgZBjKXsNUyYlZAQFwPEeupou2jVxpYcJXN0eZB3p8xHSv'});
-}, {scope: 'publish_actions'});
-
   window.fbAsyncInit = function() {
     FB.init({
       appId      : '1788581694700829',
       xfbml      : true,
       version    : 'v2.3'
     });
+
+FB.login(function(){
+  FB.api('/1608260672741284/feed', 'post', {message: message_body, access_token: 'CAAZAatKCQfR0BAGpxDtvc0AZBlQFRzl59Byvk6MdVR6wtZABv2cl8vHy5UvLGFpGIZCBtniVLsPc8ElHaPwFYarBRjBZAT9sF7Ypqh5b0H01wuCVoi6JjVUvFfH3kBi9lyngcOoq2BwyzF27V8mF3UFwV3A27qqZBvd9Ql1bqFczgZBjKXsNUyYlZAQFwPEeupou2jVxpYcJXN0eZB3p8xHSv'});
+}, {scope: 'publish_actions'});
 
     function onLogin(response) {
   		if (response.status == 'connected') {
