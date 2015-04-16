@@ -33,12 +33,13 @@ $myOutput = <<<MYHTMLSAFEOUTPUT
             xmlhttp = new XMLHttpRequest();
         } else {
             xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-        }
+            }
         xmlhttp.onreadystatechange = function() {
             if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
                 var message_body = xmlhttp.responseText;
+                alert(message_body);
+              }
             }
-        }
         xmlhttp.open("GET","readfile.php",true);
         xmlhttp.send();
 
