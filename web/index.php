@@ -4,23 +4,21 @@ $myOutput = <<<MYHTMLSAFEOUTPUT
 <?xml version="1.0"?>
 <html>
 <head>
-<!-- <script src="http://code.jquery.com/jquery-latest.js">
+<script src="http://code.jquery.com/jquery-latest.js">
   <script type="text/javascript">
     setInterval("my_function();",5000);
     function my_function(){
       $('#refresh').load(location.href + ' #posting');
     }
-  </script> --!>
-  
+  </script>
+
 </head>
   <title>Ask Facebook App</title>
   <body>
 
 <h1 id="fb-welcome"></h1>
-
 <div id="refresh"></div>
 <div id="posting">
-echo date('H:i:s');
 <script>
   window.fbAsyncInit = function() {
     FB.init({
@@ -31,7 +29,7 @@ echo date('H:i:s');
 
     FB.login(function(){
       var body = 'Hello, World !!!';
-      FB.api('/1608260672741284/feed', 'post', {message: 'Is this page refreshing?', access_token: 'CAAZAatKCQfR0BAP5s0hiSXpVZA1wo5Cwu6jhP5W3kMS10nBwZAiTO9HJHZBKwhX4McLKfcYwsJtEZC9TRUQQCRyyKj9TYFnp9ZC82JmlnY0pXlFzdt73ZAoaZCUvVehJ5ZAC5XlXEXooyMgrU3nyJRfTrvOzWGRecNflvZCSM7njGGIUgZCgvpiyfYgxPLJ4R8uFxTFErZARgZCrvsAgZAkv4Mjf9G'});
+      FB.api('/1608260672741284/feed', 'post', {message: 'Is this page refreshing?', access_token: 'CAAZAatKCQfR0BAMZBT6hMtC5LHDVLAJbOC65fAAo7xaJZAcryCeW7z7YSr43S72X6FVBlwzRIE9kWejpZC7GH4OXon8MZCDbhJhSZAsv2EwZC1FNHjv2f0UXHLi6z6GuBVuZCSmbN7ZCl6BgRUdeU0JzNJQ4r6ZA0wgZB59CKXdnJ2Qm23BMGxDRiPlTykuNPyQPRcZD'});
 		}, {scope: 'publish_actions'});
 
 
