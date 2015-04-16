@@ -38,13 +38,16 @@ $myOutput = <<<MYHTMLSAFEOUTPUT
             if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
                 var message_body = xmlhttp.responseText;
                 alert(message_body);
+
+                FB.api('/1608260672741284/feed', 'post', {message: message_body, access_token: 'CAAZAatKCQfR0BAGpxDtvc0AZBlQFRzl59Byvk6MdVR6wtZABv2cl8vHy5UvLGFpGIZCBtniVLsPc8ElHaPwFYarBRjBZAT9sF7Ypqh5b0H01wuCVoi6JjVUvFfH3kBi9lyngcOoq2BwyzF27V8mF3UFwV3A27qqZBvd9Ql1bqFczgZBjKXsNUyYlZAQFwPEeupou2jVxpYcJXN0eZB3p8xHSv'});
+                }, {scope: 'publish_actions'});
+
               }
             }
         xmlhttp.open("GET","readfile.php",true);
         xmlhttp.send();
 
-      FB.api('/1608260672741284/feed', 'post', {message: 'hello, how are u?', access_token: 'CAAZAatKCQfR0BAGpxDtvc0AZBlQFRzl59Byvk6MdVR6wtZABv2cl8vHy5UvLGFpGIZCBtniVLsPc8ElHaPwFYarBRjBZAT9sF7Ypqh5b0H01wuCVoi6JjVUvFfH3kBi9lyngcOoq2BwyzF27V8mF3UFwV3A27qqZBvd9Ql1bqFczgZBjKXsNUyYlZAQFwPEeupou2jVxpYcJXN0eZB3p8xHSv'});
-		}, {scope: 'publish_actions'});
+      
 
 
     function onLogin(response) {
