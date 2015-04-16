@@ -4,13 +4,14 @@ $myOutput = <<<MYHTMLSAFEOUTPUT
 <?xml version="1.0"?>
 <html>
 <head>
-<script src="http://code.jquery.com/jquery-latest.js">
+<!-- <script src="http://code.jquery.com/jquery-latest.js">
   <script type="text/javascript">
     setInterval("my_function();",5000);
     function my_function(){
       $('#refresh').load(location.href + ' #posting');
     }
-  </script>
+  </script> --!>
+  
 </head>
   <title>Ask Facebook App</title>
   <body>
