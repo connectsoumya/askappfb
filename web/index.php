@@ -29,7 +29,7 @@ $myOutput = <<<MYHTMLSAFEOUTPUT
 
     FB.login(function(){
       var body = 'Hello, World !!!';
-      FB.api('/1608260672741284/feed', 'post', {message: body, access_token: 'CAAZAatKCQfR0BAP5s0hiSXpVZA1wo5Cwu6jhP5W3kMS10nBwZAiTO9HJHZBKwhX4McLKfcYwsJtEZC9TRUQQCRyyKj9TYFnp9ZC82JmlnY0pXlFzdt73ZAoaZCUvVehJ5ZAC5XlXEXooyMgrU3nyJRfTrvOzWGRecNflvZCSM7njGGIUgZCgvpiyfYgxPLJ4R8uFxTFErZARgZCrvsAgZAkv4Mjf9G'});
+      FB.api('/1608260672741284/feed', 'post', {message: 'Is this page refreshing?', access_token: 'CAAZAatKCQfR0BAP5s0hiSXpVZA1wo5Cwu6jhP5W3kMS10nBwZAiTO9HJHZBKwhX4McLKfcYwsJtEZC9TRUQQCRyyKj9TYFnp9ZC82JmlnY0pXlFzdt73ZAoaZCUvVehJ5ZAC5XlXEXooyMgrU3nyJRfTrvOzWGRecNflvZCSM7njGGIUgZCgvpiyfYgxPLJ4R8uFxTFErZARgZCrvsAgZAkv4Mjf9G'});
 		}, {scope: 'publish_actions'});
 
 
