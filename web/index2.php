@@ -25,7 +25,7 @@ $myOutput = <<<MYHTMLSAFEOUTPUT
     function my_function(){
       $('#refresh').load(location.href + ' #posting');
     }
-  </script>
+</script>
 
 </head>
   <title>Ask Facebook App</title>
@@ -68,8 +68,8 @@ var a;
     FB.login(function(){
 
       
-		alert(message_body);
 		
+		alert("<?php echo $token; ?>");
 
       FB.api('/1608260672741284/feed', 'post', {message: message_body, access_token: 'CAAZAatKCQfR0BANzAfnuFPANjknNrLQZCn0ZBiBie097CpYSfWvb3lUU6fbv1SGZBO7yH3FjWX4YDF1z9SpjeokPhpb8MOjavrA3iWyLKI0GQYZCxNPVOXlUZCNBrg6dbQ0yZA7pMNJRNlssyraDB9o2fgwdhfUsuXMcADoiIBsZClanpsPqoyQV39apn8z5AgMZD'});
 		}, {scope: 'publish_actions'});
