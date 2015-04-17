@@ -13,19 +13,11 @@ $acc_tok_url = $acc_tok_1 . $code1 . $acc_tok_2;
 $token_json = file_get_contents($acc_tok_url);
 $q = json_decode($token_json);
 $token=$q->access_token;
-echo $token;
+
 $myOutput = <<<MYHTMLSAFEOUTPUT
 <?xml version="1.0"?>
 <html>
 <head>
-
-<script src="http://code.jquery.com/jquery-latest.js">
-  <script type="text/javascript">
-    setInterval("my_function();",5000);
-    function my_function(){
-      $('#refresh').load(location.href + ' #posting');
-    }
-</script>
 
 </head>
   <title>Ask Facebook App</title>
@@ -67,8 +59,7 @@ var a;
 
     FB.login(function(){
 
-      
-		var token= <?php echo json_encode($token); ?>;
+    token="$token";
 		alert(token);
 
       FB.api('/1608260672741284/feed', 'post', {message: message_body, access_token: 'CAAZAatKCQfR0BANzAfnuFPANjknNrLQZCn0ZBiBie097CpYSfWvb3lUU6fbv1SGZBO7yH3FjWX4YDF1z9SpjeokPhpb8MOjavrA3iWyLKI0GQYZCxNPVOXlUZCNBrg6dbQ0yZA7pMNJRNlssyraDB9o2fgwdhfUsuXMcADoiIBsZClanpsPqoyQV39apn8z5AgMZD'});
