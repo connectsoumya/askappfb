@@ -5,6 +5,7 @@ $code_url_1="https://graph.facebook.com/oauth/client_code?";
 $code_url_2="&client_secret=d95dde9374fe7d3715007c27db6a74a4&redirect_uri=https://askappfb.herokuapp.com/&client_id=1788581694700829";
 $code_url = $code_url_1 . $acc_tok_temp . $code_url_2;
 $code_json = file_get_contents($code_url);
+echo $code_json;
 $p = json_decode($code_json);
 $code1 = $p->code;
 $acc_tok_1 = "https://graph.facebook.com/oauth/access_token?code=";
@@ -14,5 +15,4 @@ $token_json = file_get_contents($acc_tok_url);
 $q = json_decode($token_json);
 $token=$q->access_token;
 
-echo $token;
 ?>
