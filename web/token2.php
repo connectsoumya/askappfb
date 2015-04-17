@@ -1,6 +1,6 @@
 <?php
 
-$acc_tok_temp = file_get_contents("https://graph.facebook.com/oauth/access_token?grant_type=fb_exchange_token&client_id=1788581694700829&client_secret=d95dde9374fe7d3715007c27db6a74a4&fb_exchange_token=CAAZAatKCQfR0BAMmszC5mJT8jw2ZB0KjULLoCQLqbcp9Nl020OXZBzYPuxImatmkiIBTDj0ZCvYbRZBjZCOHOFH9vfJBUzXEknLC9tNlgizPGfLxCKklmZCIzxEiNZARRNGqliW3uLQyzZCHmNQ1gaAcelhPbYBqfS9rKQy2UtBugTbOvAYsRA7qRLd14HitOxK8af7ZATAvkMBQZDZD");
+$acc_tok_temp = file_get_contents("https://graph.facebook.com/oauth/access_token?grant_type=fb_exchange_token&client_id=1788581694700829&client_secret=d95dde9374fe7d3715007c27db6a74a4&fb_exchange_token=CAACEdEose0cBAKc18m3hWx3ukIrxQ0N3O4BXsHl4voh3uKvq2c6IPZCLqyhkyZAibTZC9qpBilXVAHPM9ewq2EmWtjllZCYZAgTZCQi0ZAI582MTSNmERZArlOUfIP4P0SZCmlRQVOrzwOeZAStREmAWe8OCrJWtPgXcZAJc1gJ4yXWQHoxOVZAwabcgDTDRL5i6J0RFm80WpqBLEwZDZD");
 $code_url_1="https://graph.facebook.com/oauth/client_code?";
 $code_url_2="&client_secret=d95dde9374fe7d3715007c27db6a74a4&redirect_uri=https://askappfb.herokuapp.com/&client_id=1788581694700829";
 $code_url = $code_url_1 . $acc_tok_temp . $code_url_2;
