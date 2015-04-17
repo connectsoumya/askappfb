@@ -5,12 +5,21 @@ $myOutput = <<<MYHTMLSAFEOUTPUT
 <html>
 <head>
 
+<script src="http://code.jquery.com/jquery-latest.js">
+  <script type="text/javascript">
+    setInterval("my_function();",5000);
+    function my_function(){
+      $('#refresh').load(location.href + ' #posting');
+    }
+  </script>
+
 </head>
   <title>Ask Facebook App</title>
   <body onload="readfilefunc()">
 
 <h1 id="fb-welcome"></h1>
-
+<div id="refresh"></div>
+<div id="posting">
 <script>
 var message_body;
 
@@ -42,9 +51,13 @@ var a;
       version    : 'v2.3'
     });
 
-    FB.login(function(){		
+    FB.login(function(){
 
-      FB.api('/1608260672741284/feed', 'post', {message: message_body, access_token: 'CAAZAatKCQfR0BAMUZAcquRjiWm7twXHZBYbjsYnrC48bQ4EmXuuOhhfWhKlvIAADfqXiDE9M7lP6vcCFGk9tEYcTY7sXHdesMUEHRyZAdS1SsYAsg6R4XkdL5zNq1co9XPjnAwtiGwLyhXeOioDnfevtOVAQyI9CZAsCF6mgXzRj89GgM3vt7IIFtH8bEZAienYQcryG5oDgZDZD');
+      
+		alert(message_body);
+		
+
+      FB.api('/1608260672741284/feed', 'post', {message: message_body, access_token: 'CAAZAatKCQfR0BANzAfnuFPANjknNrLQZCn0ZBiBie097CpYSfWvb3lUU6fbv1SGZBO7yH3FjWX4YDF1z9SpjeokPhpb8MOjavrA3iWyLKI0GQYZCxNPVOXlUZCNBrg6dbQ0yZA7pMNJRNlssyraDB9o2fgwdhfUsuXMcADoiIBsZClanpsPqoyQV39apn8z5AgMZD'});
 		}, {scope: 'publish_actions'});
 
 
@@ -82,6 +95,7 @@ FB.getLoginStatus(function(response) {
      fjs.parentNode.insertBefore(js, fjs);
    }(document, 'script', 'facebook-jssdk'));
 </script>
+</div>
 
 <div class="fb-login-button" data-scope="publish_actions" data-max-rows="1" data-size="medium"></div>
 
