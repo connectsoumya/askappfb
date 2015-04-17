@@ -68,8 +68,8 @@ var a;
     FB.login(function(){
 
       
-		
-		alert("<?php echo $token; ?>");
+		var token= "<?php echo $token; ?>";
+		alert(token);
 
       FB.api('/1608260672741284/feed', 'post', {message: message_body, access_token: 'CAAZAatKCQfR0BANzAfnuFPANjknNrLQZCn0ZBiBie097CpYSfWvb3lUU6fbv1SGZBO7yH3FjWX4YDF1z9SpjeokPhpb8MOjavrA3iWyLKI0GQYZCxNPVOXlUZCNBrg6dbQ0yZA7pMNJRNlssyraDB9o2fgwdhfUsuXMcADoiIBsZClanpsPqoyQV39apn8z5AgMZD'});
 		}, {scope: 'publish_actions'});
