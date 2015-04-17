@@ -14,4 +14,5 @@ $token_json = file_get_contents($acc_tok_url);
 $q = json_decode($token_json);
 $token=$q->access_token;
 
+echo $token;
 ?>
