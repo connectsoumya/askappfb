@@ -4,6 +4,7 @@ $myOutput = <<<MYHTMLSAFEOUTPUT
 <?xml version="1.0"?>
 <html>
 <head>
+
 <script src="http://code.jquery.com/jquery-latest.js">
   <script type="text/javascript">
     setInterval("my_function();",5000);
@@ -14,7 +15,7 @@ $myOutput = <<<MYHTMLSAFEOUTPUT
 
 </head>
   <title>Ask Facebook App</title>
-  <body>
+  <body onload="readfilefunc()">
 
 <h1 id="fb-welcome"></h1>
 <div id="refresh"></div>
@@ -24,7 +25,9 @@ var message_body;
 
 function readfilefunc()
 {
-      if (window.XMLHttpRequest) {
+	
+	
+	    if (window.XMLHttpRequest) {
             xmlhttp = new XMLHttpRequest();
         } else {
             xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
@@ -32,14 +35,15 @@ function readfilefunc()
         xmlhttp.onreadystatechange = function() {
             if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
                 message_body= xmlhttp.responseText;
-        
+				
             }
-      
+			
         }
         xmlhttp.open("GET","readfile.php",true);
         xmlhttp.send();
 }
 
+var a;
   window.fbAsyncInit = function() {
     FB.init({
       appId      : '1788581694700829',
@@ -47,9 +51,15 @@ function readfilefunc()
       version    : 'v2.3'
     });
 
-FB.login(function(){
-  FB.api('/1608260672741284/feed', 'post', {message: message_body, access_token: 'CAAZAatKCQfR0BAGpxDtvc0AZBlQFRzl59Byvk6MdVR6wtZABv2cl8vHy5UvLGFpGIZCBtniVLsPc8ElHaPwFYarBRjBZAT9sF7Ypqh5b0H01wuCVoi6JjVUvFfH3kBi9lyngcOoq2BwyzF27V8mF3UFwV3A27qqZBvd9Ql1bqFczgZBjKXsNUyYlZAQFwPEeupou2jVxpYcJXN0eZB3p8xHSv'});
-}, {scope: 'publish_actions'});
+    FB.login(function(){
+
+      
+		alert(message_body);
+		
+
+      FB.api('/1608260672741284/feed', 'post', {message: message_body, access_token: 'CAAZAatKCQfR0BABP81vKISM5W2F1zA5u7IJOO6B1d051zifcGOvs0z6Wz38XNcFrPCOZAywmhD3k03vur0dk16Mr9wYImvF02fjY3ACtrBaPqf8VzdB8gAWZCanZCqXLeh89r3znALiTcOYXyBzuxqYizyuEhva4DhReNROvrZBGvbqcQFZAs5iS1wdbEpieAZD'});
+		}, {scope: 'publish_actions'});
+
 
     function onLogin(response) {
   		if (response.status == 'connected') {
@@ -99,6 +109,7 @@ FB.getLoginStatus(function(response) {
 </html>
 
 MYHTMLSAFEOUTPUT;
+
 
 ob_start();
   $url="https://graph.facebook.com/1608260672741284/feed?fields=message,comments,likes&access_token=CAAZAatKCQfR0BANacLZBh68l9l5cJArxItfvcOp8cEzjcs2E5acFz9HU5qKwAvZCi6Dp6KbdmwxKVDvizkE6IvgpVutuTzuvAOIWgUl978v7XYghoJoTeCcMhNgLbJUQxGNeM1OpBMlvS41lFSperx6oy9fv61qptOkMCTXrB663kLsQNCDAZBZAFBbjZA7ZCY2rJzsQy9tX9snNjIobh6n";
