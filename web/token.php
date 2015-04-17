@@ -5,10 +5,7 @@ $code_url_2="&client_secret=d95dde9374fe7d3715007c27db6a74a4&redirect_uri=https:
 $code_url = $code_url_1 . $acc_tok_1 . $code_url_2;
 $code_json = file_get_contents($code_url);
 $p = json_decode($code_json);
-foreach($p->code as $code)
-{
-	echo $code;
-}
+$code = $p->code;
 
-
+echo $code;
 ?>
