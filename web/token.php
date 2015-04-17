@@ -7,8 +7,8 @@ $code_json = file_get_contents($code_url);
 $p = json_decode($code_json);
 $code = $p->code;
 $acc_tok_1 = "https://graph.facebook.com/oauth/access_token?code=";
-$acc_tok_2 = "&client_id=1788581694700829&redirect_uri=https://askappfb.herokuapp..com/"
-$acc_tok_url = $acc_tok_1 . $code . $acc_tok_2;
-$token_json = file_get_contents($acc_tok_url);
+$acc_tok_2 = "&client_id=1788581694700829&redirect_uri=https://askappfb.herokuapp.com/"
+$token_url = $acc_tok_1 . $code . $acc_tok_2;
+$token_json = file_get_contents($token_url);
 echo $token_json;
 ?>
