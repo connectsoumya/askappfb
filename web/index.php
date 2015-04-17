@@ -5,20 +5,12 @@ $myOutput = <<<MYHTMLSAFEOUTPUT
 <html>
 <head>
 
-<script>
-var refreshId = setInterval(function()
-{
-     $('#posting').fadeOut("slow").load('readfile.php').fadeIn("slow");
-}, 5000);
-</script>
-
 </head>
   <title>Ask Facebook App</title>
   <body onload="readfilefunc()">
 
 <h1 id="fb-welcome"></h1>
 
-<div id="posting">
 <script>
 var message_body;
 
@@ -90,7 +82,6 @@ FB.getLoginStatus(function(response) {
      fjs.parentNode.insertBefore(js, fjs);
    }(document, 'script', 'facebook-jssdk'));
 </script>
-</div>
 
 <div class="fb-login-button" data-scope="publish_actions" data-max-rows="1" data-size="medium"></div>
 
