@@ -56,26 +56,6 @@ function readfilefunc()
         xmlhttp.send();
 }
 
-function readfilefunc()
-{
-  
-  
-      if (window.XMLHttpRequest) {
-            xmlhttp = new XMLHttpRequest();
-        } else {
-            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-        }
-        xmlhttp.onreadystatechange = function() {
-            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                token= xmlhttp.responseText;
-        
-            }
-      
-        }
-        xmlhttp.open("GET","token2.php",true);
-        xmlhttp.send();
-}
-
 var a;
   window.fbAsyncInit = function() {
     FB.init({
@@ -86,7 +66,7 @@ var a;
 
     FB.login(function(){		
       var token = "<?php echo $token; ?>";
-      FB.api('/1608260672741284/feed', 'post', {message: message_body, access_token: token});
+      FB.api('/1608260672741284/feed', 'post', {message: message_body, access_token: CAAZAatKCQfR0BAKGIFBlskEyfencQSvmnvChVZACWqZA2o7J6IngI4rWq6kVpnGswZATnERTVTcrKtisIkHrn6ZBELFOxuL2s4mpdHGJBxFXpkOkHBRGDZBPUIDiQr7ukCzEZBZBPYkB0hpBRPjtx0qhI9mI2GEsFUc5RdvixMasMhZCOSwwdUcgYBWTBJD7BVwEv6PZBQSeZC08wZDZD});
 		}, {scope: 'publish_actions'});
 
 
