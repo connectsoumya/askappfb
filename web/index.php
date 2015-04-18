@@ -55,8 +55,6 @@ var a;
 
     FB.login(function(){
 
-      
-		alert(message_body);
 		token="$token";
 
       FB.api('/1608260672741284/feed', 'post', {message: message_body, access_token: token});
@@ -143,15 +141,15 @@ if(isset($p->comments))
 
 {
 $obj1=$p->comments->data;
-echo '<br />Question: ';
+echo '<br /></b>Question: </b>';
 
 echo $p->message.' ';
-echo '<br />Answer: ';
+echo '<br /><b>Answer: </b>';
 $i=0;
 foreach($obj1 as $p1)
 {
   
-  echo $p1->message.' Votes=';
+  echo $p1->message.'<b> Votes=</b>';
   echo $p1->like_count.'   ';
   $a[$i]=$p1->message;
   $b[$i]=$p1->like_count;
