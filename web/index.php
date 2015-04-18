@@ -13,7 +13,7 @@ $myOutput = <<<MYHTMLSAFEOUTPUT
     function my_function(){
       $('#refresh').load(location.href + ' #posting');
     }
-  </script>
+</script>
 
 </head>
   <title>Ask Facebook App</title>
@@ -160,7 +160,7 @@ foreach($obj1 as $p1)
   
   
 }
-echo '<br />Best Answer:  ';
+echo '<br /><b>Best Answer: </b>';
 echo $a[array_search(max($b), $b)].'<br />';
 }
 }
