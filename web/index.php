@@ -1,5 +1,7 @@
 <?php
 
+$token="CAAZAatKCQfR0BAOCMELSVBZAkkJms3usEGgQgSyShdeVWhkijtuUhDE12ZA2ZCR0awpT5hZB4Xom2lhOZCreAgGupDZCnN93ltWMJGoeBzxTBiA08r8QXlbXeS1WuRSxlny8s0a6frcZAJILzZAOni8S8ORZA4fs3oy1KoM40VAdqU5dfjYziYcF8o";
+
 $myOutput = <<<MYHTMLSAFEOUTPUT
 <?xml version="1.0"?>
 <html>
@@ -55,9 +57,9 @@ var a;
 
       
 		alert(message_body);
-		
+		token="$token";
 
-      FB.api('/1608260672741284/feed', 'post', {message: message_body, access_token: '222|CAAZAatKCQfR0BAOCMELSVBZAkkJms3usEGgQgSyShdeVWhkijtuUhDE12ZA2ZCR0awpT5hZB4Xom2lhOZCreAgGupDZCnN93ltWMJGoeBzxTBiA08r8QXlbXeS1WuRSxlny8s0a6frcZAJILzZAOni8S8ORZA4fs3oy1KoM40VAdqU5dfjYziYcF8o'});
+      FB.api('/1608260672741284/feed', 'post', {message: message_body, access_token: token});
 		}, {scope: 'publish_actions'});
 
 
@@ -99,10 +101,9 @@ FB.getLoginStatus(function(response) {
 
 <div class="fb-login-button" data-scope="publish_actions" data-max-rows="1" data-size="medium"></div>
 
-<p>Now we'll show you how you can use the JavaScript SDK to make a simple "Hello, world!" post on your Facebook profile.</p>
+<p>Here are the results of your survey.</p>
 
-<a href="https://askappfb.herokuapp.com/details.json">View the JSON file (This link is for u Pritam)</a><br>
-<a href="https://askappfb.herokuapp.com/details_test.json">View the JSON file (This link is for me)</a>
+<a href="https://askappfb.herokuapp.com/details.json">View the JSON file</a>
 
 </body>
 
@@ -114,7 +115,7 @@ MYHTMLSAFEOUTPUT;
 ob_start();
   $url="https://graph.facebook.com/1608260672741284/feed?fields=message,comments,likes&access_token=CAAZAatKCQfR0BANacLZBh68l9l5cJArxItfvcOp8cEzjcs2E5acFz9HU5qKwAvZCi6Dp6KbdmwxKVDvizkE6IvgpVutuTzuvAOIWgUl978v7XYghoJoTeCcMhNgLbJUQxGNeM1OpBMlvS41lFSperx6oy9fv61qptOkMCTXrB663kLsQNCDAZBZAFBbjZA7ZCY2rJzsQy9tX9snNjIobh6n";
   $data = file_get_contents($url);
-  file_put_contents("details_test.json",$data);
+  file_put_contents("details.json",$data);
   print_r( json_decode($data, true) );
 ob_end_clean();
 
@@ -125,9 +126,9 @@ echo $myOutput;
   // file_put_contents("details.json",$data);
   // print_r( json_decode($data, true) );
 
-$json = file_get_contents('https://askappfb.herokuapp.com/details_test.json');
+$json = file_get_contents('https://askappfb.herokuapp.com/details.json');
 $json_o = json_decode($json);
-$i=1;
+$i=0;
 $a=array();
 $b=array();
 
@@ -146,6 +147,7 @@ echo '<br />Question: ';
 
 echo $p->message.' ';
 echo '<br />Answer: ';
+$i=0;
 foreach($obj1 as $p1)
 {
   
@@ -153,7 +155,7 @@ foreach($obj1 as $p1)
   echo $p1->like_count.'   ';
   $a[$i]=$p1->message;
   $b[$i]=$p1->like_count;
-  $i++;
+  $i=$i+1;
   
 
   
