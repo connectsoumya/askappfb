@@ -7,12 +7,14 @@ $myOutput = <<<MYHTMLSAFEOUTPUT
 <html>
 <head>
 
-<script src="http://code.jquery.com/jquery-latest.js">
-  <script type="text/javascript">
-    setInterval("my_function();",5000);
-    function my_function(){
-      $('#refresh').load(location.href + ' #posting');
-    }
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+  $("#posting").click(function(){setTimeout(function() {
+ location.reload()
+  },5000);
+    });
+});
 </script>
 
 </head>
