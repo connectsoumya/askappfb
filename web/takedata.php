@@ -1,10 +1,11 @@
-<?php include 'index.php';
+<?php
 
-
+$id=$_POST["id"];
 $type=$_POST["type"];
-$sender=$_POST["sender"]
+$subtype=$_POST["subtype"];
+$sender=$_POST["sender"];
 $con_id=$_POST["conversation"];
-$lang=$_POST["language"]
+$lang=$_POST["language"];
 $sec_token=$_POST["securityToken"];
 $content=$_POST["content"];
 
@@ -38,11 +39,12 @@ $(document).ready(function(){
 </script>
 
 echo $type;
-echo $message;
 echo $sender;
-echo $conversation;
-echo $language;
-echo $securityToken;
-
+echo $con_id;
+echo $lang;
+echo $sec_token;
+echo $content;
 
 ?>
+
+<!-- include 'index.php'; -->
