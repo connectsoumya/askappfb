@@ -4,7 +4,7 @@ $myOutput = <<<MYHTMLSAFEOUTPUT
 
 <!DOCTYPE html>
 <html>
-<body>
+<head>
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script>
@@ -31,9 +31,10 @@ $(document).ready(function(){
 
 <button>Ask the answer</button>
 
-</body>
+</head>
 </html>
 
 MYHTMLSAFEOUTPUT;
+echo $myOutput; 
 
 ?>
