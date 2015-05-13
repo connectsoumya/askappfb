@@ -1,16 +1,12 @@
 <?php
 
-$myOutput = <<<MYHTMLSAFEOUTPUT
 
-<!DOCTYPE html>
-<html>
-<head>
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script>
 $(document).ready(function(){
     $("button").click(function(){
-        $.post("index2.php",
+        $.post("takedata.php",
         {
         id: "cb636a3efae"
         type: "ask",
@@ -33,8 +29,5 @@ $(document).ready(function(){
 
 </head>
 </html>
-
-MYHTMLSAFEOUTPUT;
-echo $myOutput; 
 
 ?>
