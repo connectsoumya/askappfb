@@ -1,24 +1,21 @@
 <?php
 
-$acc_tok_temp = file_get_contents("https://graph.facebook.com/oauth/access_token?grant_type=fb_exchange_token&client_id=1788581694700829&client_secret=d95dde9374fe7d3715007c27db6a74a4&fb_exchange_token=");
-$code_url_1="https://graph.facebook.com/oauth/client_code?";
-$code_url_2="&client_secret=d95dde9374fe7d3715007c27db6a74a4&redirect_uri=https://askappfb.herokuapp.com/&client_id=1788581694700829";
-$code_url = $code_url_1 . $acc_tok_temp . $code_url_2;
-$code_json = file_get_contents($code_url);
-$p = json_decode($code_json);
-$code1 = $p->code;
-$acc_tok_1 = "https://graph.facebook.com/oauth/access_token?code=";
-$acc_tok_2 = "&client_id=1788581694700829&redirect_uri=https://askappfb.herokuapp.com/";
-$acc_tok_url = $acc_tok_1 . $code1 . $acc_tok_2;
-$token_json = file_get_contents($acc_tok_url);
-$q = json_decode($token_json);
-$token=$q->access_token;
-echo $token;
+$token="CAAZAatKCQfR0BAOCMELSVBZAkkJms3usEGgQgSyShdeVWhkijtuUhDE12ZA2ZCR0awpT5hZB4Xom2lhOZCreAgGupDZCnN93ltWMJGoeBzxTBiA08r8QXlbXeS1WuRSxlny8s0a6frcZAJILzZAOni8S8ORZA4fs3oy1KoM40VAdqU5dfjYziYcF8o";
 
 $myOutput = <<<MYHTMLSAFEOUTPUT
 <?xml version="1.0"?>
 <html>
 <head>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+  $("#posting").click(function(){setTimeout(function() {
+ location.reload()
+  },5000);
+    });
+});
+</script>
 
 </head>
   <title>Ask Facebook App</title>
@@ -32,9 +29,9 @@ var message_body;
 
 function readfilefunc()
 {
-	
-	
-	    if (window.XMLHttpRequest) {
+  
+  
+      if (window.XMLHttpRequest) {
             xmlhttp = new XMLHttpRequest();
         } else {
             xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
@@ -42,9 +39,9 @@ function readfilefunc()
         xmlhttp.onreadystatechange = function() {
             if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
                 message_body= xmlhttp.responseText;
-				
+        
             }
-			
+      
         }
         xmlhttp.open("GET","readfile.php",true);
         xmlhttp.send();
@@ -61,17 +58,16 @@ var a;
     FB.login(function(){
 
     token="$token";
-		alert(token);
 
       FB.api('/1608260672741284/feed', 'post', {message: message_body, access_token: token});
-		}, {scope: 'publish_actions'});
+    }, {scope: 'publish_actions'});
 
 
     function onLogin(response) {
-  		if (response.status == 'connected') {
-    	 FB.api('/me?fields=first_name', function(data) {
-      	var welcomeBlock = document.getElementById('fb-welcome');
-      	welcomeBlock.innerHTML = 'Hello, ' + data.first_name + '!';
+      if (response.status == 'connected') {
+       FB.api('/me?fields=first_name', function(data) {
+        var welcomeBlock = document.getElementById('fb-welcome');
+        welcomeBlock.innerHTML = 'Hello, ' + data.first_name + '!';
         });
       } 
     }
@@ -105,10 +101,9 @@ FB.getLoginStatus(function(response) {
 
 <div class="fb-login-button" data-scope="publish_actions" data-max-rows="1" data-size="medium"></div>
 
-<p>Now we'll show you how you can use the JavaScript SDK to make a simple "Hello, world!" post on your Facebook profile.</p>
+<p>Here are the results of your survey.</p>
 
-<a href="https://askappfb.herokuapp.com/details.json">View the JSON file (This link is for u Pritam)</a><br>
-<a href="https://askappfb.herokuapp.com/details_test.json">View the JSON file (This link is for me)</a>
+<a href="https://askappfb.herokuapp.com/details.json">View the JSON file</a>
 
 </body>
 
@@ -120,7 +115,7 @@ MYHTMLSAFEOUTPUT;
 ob_start();
   $url="https://graph.facebook.com/1608260672741284/feed?fields=message,comments,likes&access_token=CAAZAatKCQfR0BANacLZBh68l9l5cJArxItfvcOp8cEzjcs2E5acFz9HU5qKwAvZCi6Dp6KbdmwxKVDvizkE6IvgpVutuTzuvAOIWgUl978v7XYghoJoTeCcMhNgLbJUQxGNeM1OpBMlvS41lFSperx6oy9fv61qptOkMCTXrB663kLsQNCDAZBZAFBbjZA7ZCY2rJzsQy9tX9snNjIobh6n";
   $data = file_get_contents($url);
-  file_put_contents("details_test.json",$data);
+  file_put_contents("details.json",$data);
   print_r( json_decode($data, true) );
 ob_end_clean();
 
@@ -131,9 +126,9 @@ echo $myOutput;
   // file_put_contents("details.json",$data);
   // print_r( json_decode($data, true) );
 
-$json = file_get_contents('https://askappfb.herokuapp.com/details_test.json');
+$json = file_get_contents('https://askappfb.herokuapp.com/details.json');
 $json_o = json_decode($json);
-$i=1;
+$i=0;
 $a=array();
 $b=array();
 
@@ -148,33 +143,66 @@ if(isset($p->comments))
 
 {
 $obj1=$p->comments->data;
-echo '<br />Question: ';
+echo '<br /></b>Question: </b>';
 
 echo $p->message.' ';
-echo '<br />Answer: ';
+echo '<br /><b>Answer: </b>';
+$i=0;
 foreach($obj1 as $p1)
 {
   
-  echo $p1->message.' Votes=';
+  echo $p1->message.'<b> Votes=</b>';
   echo $p1->like_count.'   ';
   $a[$i]=$p1->message;
   $b[$i]=$p1->like_count;
-  $i++;
-  
-
-  
-  
-  
+  $i=$i+1;
+ 
 }
-echo '<br />Best Answer:  ';
+echo '<br /><b>Best Answer: </b>';
 echo $a[array_search(max($b), $b)].'<br />';
 }
 }
 }
 }
 
+$type=$_POST["type"];
+$sender=$_POST["sender"]
+$con_id=$_POST["conversation"];
+$lang=$_POST["language"]
+$sec_token=$_POST["securityToken"];
+$content=$_POST["content"];
 
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script>
 
+type="$type";
+message="KoI near Piazza Mosna";
+sender: "$sender";
+conversation: "$con_id";
+securityToken:  "$sec_token";
+language:  "$lang";
+
+$(document).ready(function(){
+      $.post("http://smartsociety.u-hopper.com/message/",
+
+        {  
+         "type": type
+         "subtype": "answer",
+         "content": message,
+         "sender": sender,
+         "conversation": conversation,
+         "language":  language,
+         "securityToken":  securityToken
+        },
+
+      function(data){
+          alert("Data: " + data);
+        });
+});
+</script>
+
+echo $type;
+echo $message;
 // <div id="publishBtn" style="padding-top: 10px"> Click me to publish a "Hello, World!" post to Facebook. </div> 
 // <script>
 // document.getElementById('publishBtn').onclick = function() {
