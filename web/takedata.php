@@ -1,49 +1,81 @@
 <?php
 
-$id=$_POST["id"];
-$type=$_POST["type"];
-$subtype=$_POST["subtype"];
-$sender=$_POST["sender"];
-$con_id=$_POST["conversation"];
-$lang=$_POST["language"];
-$sec_token=$_POST["securityToken"];
-$content=$_POST["content"];
+$string=file_get_contents("php://input");
+$parts = explode('"', $string);
 
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-<script>
+// post question
 
-type="$type";
-message="KoI near Piazza Mosna";
-sender: "$sender";
-conversation: "$con_id";
-securityToken:  "$sec_token";
-language:  "$lang";
+file_put_contents('data.txt', $parts[16]);
 
-$(document).ready(function(){
-      $.post("http://smartsociety.u-hopper.com/message/",
+$url='http://smartsociety.u-hopper.com/message/';
+$ch=curl_init($url);
 
-        {  
-         "type": type
-         "subtype": "answer",
-         "content": message,
-         "sender": sender,
-         "conversation": conversation,
-         "language":  language,
-         "securityToken":  securityToken
-        },
+$answer = array(
+  'type' $parts[3]=> , 
+  'subtype' => "answer",
+  'content' => $reply,
+  'sender' => $parts[7],
+  'conversation' $parts[9]=> ,
+  'language' => $parts[11],
+  'securityToken' => $parts[13]
+  );
 
-      function(data){
-          alert("Data: " + data);
-        });
-});
-</script>
+$answer_json=json_encode($answer);
+curl_setopt($ch, CURLOPT_POST, 1);
+curl_setopt($ch, CURLOPT_POSTFIELDS, $answer_json);
+curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
 
-echo $type;
-echo $sender;
-echo $con_id;
-echo $lang;
-echo $sec_token;
-echo $content;
+$result=curl_exec($ch);
+
+
+
+// $myOutput = <<<MYHTMLSAFEOUTPUT
+
+// <!DOCTYPE html>
+// <html>
+// <head>
+
+// <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+// <script>
+
+// type="$type";
+// message="KoI near Piazza Mosna";
+// sender="$sender";
+// conversation="$con_id";
+// securityToken="$sec_token";
+// language="$lang";
+
+// $(document).ready(function(){
+//       $.post("http://smartsociety.u-hopper.com/message/",
+
+//         {  
+//          "type": type
+//          "subtype": "answer",
+//          "content": message,
+//          "sender": sender,
+//          "conversation": conversation,
+//          "language":  language,
+//          "securityToken":  securityToken
+//         },
+
+//       function(data){
+//           alert("Data: " + data);
+//         });
+// });
+// </script>
+
+// </head>
+// </html>
+
+// MYHTMLSAFEOUTPUT;
+// echo $myOutput; 
+
+// echo $type;
+// echo $sender;
+// echo $con_id;
+// echo $lang;
+// echo $sec_token;
+// echo $content;
 
 ?>
 

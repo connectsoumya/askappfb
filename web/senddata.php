@@ -2,6 +2,9 @@
 
 $myOutput = <<<MYHTMLSAFEOUTPUT
 
+<!DOCTYPE html>
+<html>
+<head>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script>
 $(document).ready(function(){
@@ -25,9 +28,12 @@ $(document).ready(function(){
 });
 </script>
 
-<button>Ask the answer</button>
-
 </head>
+<body>
+
+<button>Send an HTTP POST request to a page and get the result back</button>
+
+</body>
 </html>
 
 MYHTMLSAFEOUTPUT;

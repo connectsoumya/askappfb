@@ -156,53 +156,23 @@ foreach($obj1 as $p1)
   $a[$i]=$p1->message;
   $b[$i]=$p1->like_count;
   $i=$i+1;
- 
+  
+
+  
+  
+  
 }
 echo '<br /><b>Best Answer: </b>';
 echo $a[array_search(max($b), $b)].'<br />';
+$b_reply=$a[array_search(max($b), $b)];
+$q_id=$p->id;
 }
 }
 }
 }
 
-$type=$_POST["type"];
-$sender=$_POST["sender"]
-$con_id=$_POST["conversation"];
-$lang=$_POST["language"]
-$sec_token=$_POST["securityToken"];
-$content=$_POST["content"];
 
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-<script>
 
-type="$type";
-message="KoI near Piazza Mosna";
-sender: "$sender";
-conversation: "$con_id";
-securityToken:  "$sec_token";
-language:  "$lang";
-
-$(document).ready(function(){
-      $.post("http://smartsociety.u-hopper.com/message/",
-
-        {  
-         "type": type
-         "subtype": "answer",
-         "content": message,
-         "sender": sender,
-         "conversation": conversation,
-         "language":  language,
-         "securityToken":  securityToken
-        },
-
-      function(data){
-          alert("Data: " + data);
-        });
-});
-</script>
-
-echo $type;
-echo $message;
 // <div id="publishBtn" style="padding-top: 10px"> Click me to publish a "Hello, World!" post to Facebook. </div> 
 // <script>
 // document.getElementById('publishBtn').onclick = function() {
