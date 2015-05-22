@@ -131,11 +131,13 @@ $json_o = json_decode($json);
 $i=0;
 $a=array();
 $b=array();
-
+$questionids=array();
 if($json_o->data!=null)
 {
 foreach($json_o->data as $p)
 {
+  $questionids[]=$p->id;
+  print_r($questionids);
 
 {if(isset($p->message))
 
@@ -147,7 +149,6 @@ echo '<br /></b>Question: </b>';
 
 echo $p->message.' ';
 $q_id=$p->id;
-echo $q_id;
 echo '<br /><b>Answer: </b>';
 $i=0;
 foreach($obj1 as $p1)
