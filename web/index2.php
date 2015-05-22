@@ -6,7 +6,7 @@
 // // post question
 
 // file_put_contents('data.txt', $parts[16]);
-
+header("Refresh: 10;");
 
 $token="CAAZAatKCQfR0BAOCMELSVBZAkkJms3usEGgQgSyShdeVWhkijtuUhDE12ZA2ZCR0awpT5hZB4Xom2lhOZCreAgGupDZCnN93ltWMJGoeBzxTBiA08r8QXlbXeS1WuRSxlny8s0a6frcZAJILzZAOni8S8ORZA4fs3oy1KoM40VAdqU5dfjYziYcF8o";
 
@@ -67,7 +67,7 @@ var a;
 
     token="$token";
 
-      FB.api('/1608260672741284/feed', 'post', {message: message_body, access_token: token});
+      FB.api('/1608260672741284/feed', 'post', {message: , access_token: token});
     }, {scope: 'publish_actions'});
 
 
