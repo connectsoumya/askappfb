@@ -146,6 +146,8 @@ $obj1=$p->comments->data;
 echo '<br /></b>Question: </b>';
 
 echo $p->message.' ';
+$q_id=$p->id;
+echo $q_id;
 echo '<br /><b>Answer: </b>';
 $i=0;
 foreach($obj1 as $p1)
@@ -165,7 +167,7 @@ foreach($obj1 as $p1)
 echo '<br /><b>Best Answer: </b>';
 echo $a[array_search(max($b), $b)].'<br />';
 $b_reply=$a[array_search(max($b), $b)];
-$q_id=$p->id;
+
 }
 }
 }
