@@ -67,7 +67,7 @@ var a;
 
     token="$token";
 
-      FB.api('/1608260672741284/feed', 'post', {message: , access_token: token});
+      FB.api('/1608260672741284/feed', 'post', {message: message_body, access_token: token});
     }, {scope: 'publish_actions'});
 
 
