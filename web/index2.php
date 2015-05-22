@@ -146,8 +146,7 @@ $obj1=$p->comments->data;
 echo '<br /></b>Question: </b>';
 
 echo $p->message.' ';
-$q_id=$p->id;
-echo $q_id;
+echo $p->id.' ';
 echo '<br /><b>Answer: </b>';
 $i=0;
 foreach($obj1 as $p1)
