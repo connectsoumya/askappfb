@@ -36,18 +36,6 @@ if ($session) {
   // Logged in
 }
 
-$helper = new FacebookCanvasLoginHelper();
-try {
-  $session = $helper->getSession();
-} catch(FacebookRequestException $ex) {
-  // When Facebook returns an error
-} catch(\Exception $ex) {
-  // When validation fails or other local issues
-}
-if ($session) {
-  // Logged in
-}
-
 $session = new FacebookSession($token);
 
 // $request = new FacebookRequest($session, 'GET', '/1608260672741284/feed?fields=message,comments,likes');
