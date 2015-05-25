@@ -2,8 +2,23 @@
 
 // header("Refresh: 10;");
 
-$string=file_get_contents("php://input");
-$parts = explode('"', $string);
+// $string=file_get_contents("php://input");
+
+$string='{
+    "id": "4a11c9f1-a603-11e4-b25d-0eec4dbb1c61",
+    "content": "{\"question\":\"Is it working s again?\",\"type\":\"DIRECT\",\"timestamp\":1422349376846}",
+    "type": "ask",
+    "subtype": "question",
+    "sender": "ask",
+    "conversation": "4a11c9f0-a603-11e4-b25d-0eec4dbb1c61",
+    "ttl": "0"
+}';
+
+$string=json_decode($string,true);
+$ask_q_id=$string['id'];
+$content=$string['content'];
+$con=json_decode($content);
+$ask_qstn=$con->question;
 $token="CAAZAatKCQfR0BAOCMELSVBZAkkJms3usEGgQgSyShdeVWhkijtuUhDE12ZA2ZCR0awpT5hZB4Xom2lhOZCreAgGupDZCnN93ltWMJGoeBzxTBiA08r8QXlbXeS1WuRSxlny8s0a6frcZAJILzZAOni8S8ORZA4fs3oy1KoM40VAdqU5dfjYziYcF8o";
 
 // post question
@@ -46,8 +61,7 @@ if($session) {
   try {
     $response = (new FacebookRequest(
       $session, 'POST', '/1608260672741284/feed', array(
-        'link' => 'www.example.com',
-        'message' => 'User provided message'
+        'message' => $ask_qstn
       )
     ))->execute()->getGraphObject();
     echo "Posted with id: " . $response->getProperty('id');
@@ -56,6 +70,22 @@ if($session) {
     echo " with message: " . $e->getMessage();
   }   
 }
+
+$q_id=$response->getProperty('id');
+$q_id=(string)$q_id;
+
+require 'vendor/autoload.php';
+use Flintstone\Flintstone;
+
+// Set options
+$options = array('dir' => '/home/soumya/askappfb/web');
+// Load the databases
+$q_map = Flintstone::load('q_map', $options);
+// Set keys
+$q_map->set($ask_q_id, array('fb_q_id' => $q_id));
+
+// Retrieve keys
+// $user = $users->get('bob');
 
 // output in the browser
 

@@ -7,6 +7,9 @@
     "heroku/heroku-buildpack-php": "*"
   },
   "require" : {
-    "facebook/php-sdk-v4" : "4.0.*"
+    "facebook/php-sdk-v4": "4.0.*"
+  },
+  "require" : {
+    "fire015/flintstone": "1.*"
   }
 }
