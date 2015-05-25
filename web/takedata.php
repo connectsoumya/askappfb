@@ -8,17 +8,16 @@ $parts = explode('"', $string);
 // post question
 
 file_put_contents('data.txt', $parts[16]);
-$reply=
 
 $urlsend='http://smartsociety.u-hopper.com/message/';
 $ch=curl_init($urlsend);
 
 $answer = array(
-  'type' $parts[3]=> , 
+  'type' => $parts[3] , 
   'subtype' => "answer",
   'content' => $reply,
   'sender' => $parts[7],
-  'conversation' $parts[9]=> ,
+  'conversation' => $parts[9] ,
   'language' => $parts[11],
   'securityToken' => $parts[13]
   );

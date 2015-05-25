@@ -1,5 +1,6 @@
 <?php
 
+
 $myOutput = <<<MYHTMLSAFEOUTPUT
 
 <!DOCTYPE html>

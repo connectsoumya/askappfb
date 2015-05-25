@@ -1,12 +1,14 @@
 <?php
 
-// $string=file_get_contents("php://input");
-// $parts = explode('"', $string);
-
-// // post question
-
-// file_put_contents('data.txt', $parts[16]);
 header("Refresh: 10;");
+
+$string=file_get_contents("php://input");
+$parts = explode('"', $string);
+
+// post question
+
+file_put_contents('data.txt', $parts[16]);
+
 
 $token="CAAZAatKCQfR0BAOCMELSVBZAkkJms3usEGgQgSyShdeVWhkijtuUhDE12ZA2ZCR0awpT5hZB4Xom2lhOZCreAgGupDZCnN93ltWMJGoeBzxTBiA08r8QXlbXeS1WuRSxlny8s0a6frcZAJILzZAOni8S8ORZA4fs3oy1KoM40VAdqU5dfjYziYcF8o";
 
@@ -182,6 +184,25 @@ $b_reply=$a[array_search(max($b), $b)];
 }
 }
 
+$urlsend='http://smartsociety.u-hopper.com/message/';
+$ch=curl_init($urlsend);
+
+$answer = array(
+  'type' => $parts[3] , 
+  'subtype' => "answer",
+  'content' => $reply,
+  'sender' => $parts[7],
+  'conversation' => $parts[9] ,
+  'language' => $parts[11],
+  'securityToken' => $parts[13]
+  );
+
+$answer_json=json_encode($answer);
+curl_setopt($ch, CURLOPT_POST, 1);
+curl_setopt($ch, CURLOPT_POSTFIELDS, $answer_json);
+curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
+
+$result=curl_exec($ch);
 
 
 // <div id="publishBtn" style="padding-top: 10px"> Click me to publish a "Hello, World!" post to Facebook. </div> 
