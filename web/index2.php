@@ -4,123 +4,67 @@ header("Refresh: 10;");
 
 $string=file_get_contents("php://input");
 $parts = explode('"', $string);
+$token="CAAZAatKCQfR0BAOCMELSVBZAkkJms3usEGgQgSyShdeVWhkijtuUhDE12ZA2ZCR0awpT5hZB4Xom2lhOZCreAgGupDZCnN93ltWMJGoeBzxTBiA08r8QXlbXeS1WuRSxlny8s0a6frcZAJILzZAOni8S8ORZA4fs3oy1KoM40VAdqU5dfjYziYcF8o";
 
 // post question
 
 file_put_contents('data.txt', $parts[16]);
 
+use Facebook\FacebookSession;
+use Facebook\FacebookRequest;
+use Facebook\GraphUser;
+use Facebook\FacebookRequestException;
 
-$token="CAAZAatKCQfR0BAOCMELSVBZAkkJms3usEGgQgSyShdeVWhkijtuUhDE12ZA2ZCR0awpT5hZB4Xom2lhOZCreAgGupDZCnN93ltWMJGoeBzxTBiA08r8QXlbXeS1WuRSxlny8s0a6frcZAJILzZAOni8S8ORZA4fs3oy1KoM40VAdqU5dfjYziYcF8o";
+FacebookSession::setDefaultApplication('1788581694700829', 'd95dde9374fe7d3715007c27db6a74a4');
 
-$myOutput = <<<MYHTMLSAFEOUTPUT
-<?xml version="1.0"?>
-<html>
-<head>
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script>
-$(document).ready(function(){
-  $("#posting").click(function(){setTimeout(function() {
- location.reload()
-  },5000);
-    });
-});
-</script>
-
-</head>
-  <title>Ask Facebook App</title>
-  <body onload="readfilefunc()">
-
-<h1 id="fb-welcome"></h1>
-<div id="refresh"></div>
-<div id="posting">
-<script>
-var message_body;
-
-function readfilefunc()
-{
-  
-  
-      if (window.XMLHttpRequest) {
-            xmlhttp = new XMLHttpRequest();
-        } else {
-            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-        }
-        xmlhttp.onreadystatechange = function() {
-            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                message_body= xmlhttp.responseText;
-        
-            }
-      
-        }
-        xmlhttp.open("GET","readfile.php",true);
-        xmlhttp.send();
+$helper = new FacebookRedirectLoginHelper('https://askappfb.herokuapp.com/index2.php');
+$loginUrl = $helper->getLoginUrl();
+$helper = new FacebookRedirectLoginHelper();
+try {
+  $session = $helper->getSessionFromRedirect();
+} catch(FacebookRequestException $ex) {
+  // When Facebook returns an error
+} catch(\Exception $ex) {
+  // When validation fails or other local issues
+}
+if ($session) {
+  // Logged in
 }
 
-var a;
-  window.fbAsyncInit = function() {
-    FB.init({
-      appId      : '1788581694700829',
-      xfbml      : true,
-      version    : 'v2.3'
-    });
+$helper = new FacebookCanvasLoginHelper();
+try {
+  $session = $helper->getSession();
+} catch(FacebookRequestException $ex) {
+  // When Facebook returns an error
+} catch(\Exception $ex) {
+  // When validation fails or other local issues
+}
+if ($session) {
+  // Logged in
+}
 
-    FB.login(function(){
+$session = new FacebookSession($token);
 
-    token="$token";
+// $request = new FacebookRequest($session, 'GET', '/1608260672741284/feed?fields=message,comments,likes');
+// $response = $request->execute();
+// $graphObject = $response->getGraphObject();
 
-      FB.api('/1608260672741284/feed', 'post', {message: message_body, access_token: token});
-    }, {scope: 'publish_actions'});
+if($session) {
+  try {
+    $response = (new FacebookRequest(
+      $session, 'POST', '/1608260672741284/feed', array(
+        'link' => 'www.example.com',
+        'message' => 'User provided message'
+      )
+    ))->execute()->getGraphObject();
+    echo "Posted with id: " . $response->getProperty('id');
+  } catch(FacebookRequestException $e) {
+    echo "Exception occured, code: " . $e->getCode();
+    echo " with message: " . $e->getMessage();
+  }   
+}
 
-
-    function onLogin(response) {
-      if (response.status == 'connected') {
-       FB.api('/me?fields=first_name', function(data) {
-        var welcomeBlock = document.getElementById('fb-welcome');
-        welcomeBlock.innerHTML = 'Hello, ' + data.first_name + '!';
-        });
-      } 
-    }
-
-FB.getLoginStatus(function(response) {
-
-  // Check login status on load, and if the user is
-  // already logged in, go directly to the welcome message.
-
-  if (response.status == 'connected') {
-    onLogin(response);
-  } else {
-    // Otherwise, show Login dialog first.
-    FB.login(function(response) {
-      onLogin(response);
-    }, {scope: 'user_friends, email'});
-  }
-});
-
-  };
-
-  (function(d, s, id){
-     var js, fjs = d.getElementsByTagName(s)[0];
-     if (d.getElementById(id)) {return;}
-     js = d.createElement(s); js.id = id;
-     js.src = "//connect.facebook.net/en_US/sdk.js";
-     fjs.parentNode.insertBefore(js, fjs);
-   }(document, 'script', 'facebook-jssdk'));
-</script>
-</div>
-
-<div class="fb-login-button" data-scope="publish_actions" data-max-rows="1" data-size="medium"></div>
-
-<p>Here are the results of your survey.</p>
-
-<a href="https://askappfb.herokuapp.com/details.json">View the JSON file</a>
-
-</body>
-
-</html>
-
-MYHTMLSAFEOUTPUT;
-
+// output in the browser
 
 ob_start();
   $url="https://graph.facebook.com/1608260672741284/feed?fields=message,comments,likes&access_token=CAAZAatKCQfR0BANacLZBh68l9l5cJArxItfvcOp8cEzjcs2E5acFz9HU5qKwAvZCi6Dp6KbdmwxKVDvizkE6IvgpVutuTzuvAOIWgUl978v7XYghoJoTeCcMhNgLbJUQxGNeM1OpBMlvS41lFSperx6oy9fv61qptOkMCTXrB663kLsQNCDAZBZAFBbjZA7ZCY2rJzsQy9tX9snNjIobh6n";
