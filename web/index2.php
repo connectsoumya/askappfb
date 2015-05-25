@@ -1,6 +1,6 @@
 <?php
 
-header("Refresh: 10;");
+// header("Refresh: 10;");
 
 $string=file_get_contents("php://input");
 $parts = explode('"', $string);
@@ -8,7 +8,7 @@ $token="CAAZAatKCQfR0BAOCMELSVBZAkkJms3usEGgQgSyShdeVWhkijtuUhDE12ZA2ZCR0awpT5hZ
 
 // post question
 
-file_put_contents('data.txt', $parts[16]);
+// file_put_contents('data.txt', $parts[16]);
 
 session_start();
  
@@ -65,8 +65,6 @@ ob_start();
   file_put_contents("details.json",$data);
   print_r( json_decode($data, true) );
 ob_end_clean();
-
-echo $myOutput; 
   
   // $url="https://graph.facebook.com/1608260672741284/feed?fields=message,comments,likes&access_token=CAAZAatKCQfR0BADrIHdqaYu4u4aiPo2Ighq3vqMmqghiAkp1L84m8CLSh6Fla70OfqfdNBHfLZBXVTFf4rlF5XjEkqVDKD3qBCBbglMwA8kOzNiCRrqj787UtCRXYgmi9e7sBrZBs1rGBQ3omZBkMCttiogdfM3MiX3SdJZBvmwarMXpKKOEo8U8pk81CjY4ZD";
   // $data = file_get_contents($url);
@@ -83,8 +81,8 @@ if($json_o->data!=null)
 {
 foreach($json_o->data as $p)
 {
-  $questionids[]=$p->id;
-  print_r($questionids);
+  // $questionids[]=$p->id;
+  // print_r($questionids);
 
 {if(isset($p->message))
 
@@ -95,7 +93,6 @@ $obj1=$p->comments->data;
 echo '<br /></b>Question: </b>';
 
 echo $p->message.' ';
-$q_id=$p->id;
 echo '<br /><b>Answer: </b>';
 $i=0;
 foreach($obj1 as $p1)
