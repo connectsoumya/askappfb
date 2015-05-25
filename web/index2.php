@@ -10,10 +10,15 @@ $token="CAAZAatKCQfR0BAOCMELSVBZAkkJms3usEGgQgSyShdeVWhkijtuUhDE12ZA2ZCR0awpT5hZ
 
 file_put_contents('data.txt', $parts[16]);
 
+session_start();
+ 
+require_once 'facebook-php-sdk/autoload.php';
+
 use Facebook\FacebookSession;
 use Facebook\FacebookRequest;
 use Facebook\GraphUser;
 use Facebook\FacebookRequestException;
+use Facebook\FacebookRedirectLoginHelper;
 
 FacebookSession::setDefaultApplication('1788581694700829', 'd95dde9374fe7d3715007c27db6a74a4');
 
