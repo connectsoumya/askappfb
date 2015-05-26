@@ -5,8 +5,8 @@
 // $string=file_get_contents("php://input");
 
 $string='{
-    "id": "4a11c9f1-a603-11e4-b25d-0eec4dbb1c61",
-    "content": "{\"question\":\"Is it working s again?\",\"type\":\"DIRECT\",\"timestamp\":1422349376846}",
+    "id": "4a11w3f1-a603-1224-b25d-0eec4dbb1c61",
+    "content": "{\"question\":\"Hopefully it is working again. Happy.\",\"type\":\"DIRECT\",\"timestamp\":1422349376846}",
     "type": "ask",
     "subtype": "question",
     "sender": "ask",
@@ -85,8 +85,8 @@ $q_map = Flintstone::load('q_map', $options);
 $q_map->set($ask_q_id, array('fb_q_id' => $q_id));
 
 // Retrieve keys
-// $user = $users->get('bob');
-
+$user = $q_map->get($ask_q_id);
+print_r ($user);
 // output in the browser
 
 ob_start();
@@ -101,52 +101,52 @@ ob_end_clean();
   // file_put_contents("details.json",$data);
   // print_r( json_decode($data, true) );
 
-$json = file_get_contents('https://askappfb.herokuapp.com/details.json');
-$json_o = json_decode($json);
-$i=0;
-$a=array();
-$b=array();
-$questionids=array();
-if($json_o->data!=null)
-{
-foreach($json_o->data as $p)
-{
-  // $questionids[]=$p->id;
-  // print_r($questionids);
+// $json = file_get_contents('https://askappfb.herokuapp.com/details.json');
+// $json_o = json_decode($json);
+// $i=0;
+// $a=array();
+// $b=array();
+// $questionids=array();
+// if($json_o->data!=null)
+// {
+// foreach($json_o->data as $p)
+// {
+//   // $questionids[]=$p->id;
+//   // print_r($questionids);
 
-{if(isset($p->message))
+// {if(isset($p->message))
 
-if(isset($p->comments))
+// if(isset($p->comments))
 
-{
-$obj1=$p->comments->data;
-echo '<br /></b>Question: </b>';
+// {
+// $obj1=$p->comments->data;
+// echo '<br /></b>Question: </b>';
 
-echo $p->message.' ';
-echo '<br /><b>Answer: </b>';
-$i=0;
-foreach($obj1 as $p1)
-{
+// echo $p->message.' ';
+// echo '<br /><b>Answer: </b>';
+// $i=0;
+// foreach($obj1 as $p1)
+// {
   
-  echo $p1->message.'<b> Votes=</b>';
-  echo $p1->like_count.'   ';
-  $a[$i]=$p1->message;
-  $b[$i]=$p1->like_count;
-  $i=$i+1;
+//   echo $p1->message.'<b> Votes=</b>';
+//   echo $p1->like_count.'   ';
+//   $a[$i]=$p1->message;
+//   $b[$i]=$p1->like_count;
+//   $i=$i+1;
   
 
   
   
   
-}
-echo '<br /><b>Best Answer: </b>';
-echo $a[array_search(max($b), $b)].'<br />';
-$b_reply=$a[array_search(max($b), $b)];
+// }
+// echo '<br /><b>Best Answer: </b>';
+// echo $a[array_search(max($b), $b)].'<br />';
+// $b_reply=$a[array_search(max($b), $b)];
 
-}
-}
-}
-}
+// }
+// }
+// }
+// }
 
 $urlsend='http://smartsociety.u-hopper.com/message/';
 $ch=curl_init($urlsend);

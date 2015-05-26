@@ -1,116 +1,93 @@
 <?php
 
+// header("Refresh: 10;");
+
+// $string=file_get_contents("php://input");
+
+$string='{
+    "id": "4a11c9f1-a603-11e4-b25d-0eec4dbb1c61",
+    "content": "{\"question\":\"Is it working s again?\",\"type\":\"DIRECT\",\"timestamp\":1422349376846}",
+    "type": "ask",
+    "subtype": "question",
+    "sender": "ask",
+    "conversation": "4a11c9f0-a603-11e4-b25d-0eec4dbb1c61",
+    "ttl": "0"
+}';
+
+$string=json_decode($string,true);
+$ask_q_id=$string['id'];
+$content=$string['content'];
+$con=json_decode($content);
+$ask_qstn=$con->question;
 $token="CAAZAatKCQfR0BAOCMELSVBZAkkJms3usEGgQgSyShdeVWhkijtuUhDE12ZA2ZCR0awpT5hZB4Xom2lhOZCreAgGupDZCnN93ltWMJGoeBzxTBiA08r8QXlbXeS1WuRSxlny8s0a6frcZAJILzZAOni8S8ORZA4fs3oy1KoM40VAdqU5dfjYziYcF8o";
 
-$myOutput = <<<MYHTMLSAFEOUTPUT
-<?xml version="1.0"?>
-<html>
-<head>
+// post question
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script>
-$(document).ready(function(){
-  $("#posting").click(function(){setTimeout(function() {
- location.reload()
-  },5000);
-    });
-});
-</script>
+// file_put_contents('data.txt', $parts[16]);
 
-</head>
-  <title>Ask Facebook App</title>
-  <body onload="readfilefunc()">
+session_start();
+ 
+require_once 'facebook-php-sdk/autoload.php';
 
-<h1 id="fb-welcome"></h1>
-<div id="refresh"></div>
-<div id="posting">
-<script>
-var message_body;
+use Facebook\FacebookSession;
+use Facebook\FacebookRequest;
+use Facebook\GraphUser;
+use Facebook\FacebookRequestException;
+use Facebook\FacebookRedirectLoginHelper;
 
-function readfilefunc()
-{
-	
-	
-	    if (window.XMLHttpRequest) {
-            xmlhttp = new XMLHttpRequest();
-        } else {
-            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-        }
-        xmlhttp.onreadystatechange = function() {
-            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                message_body= xmlhttp.responseText;
-				
-            }
-			
-        }
-        xmlhttp.open("GET","readfile.php",true);
-        xmlhttp.send();
+FacebookSession::setDefaultApplication('1788581694700829', 'd95dde9374fe7d3715007c27db6a74a4');
+
+$helper = new FacebookRedirectLoginHelper('https://askappfb.herokuapp.com/index2.php');
+$loginUrl = $helper->getLoginUrl();
+
+try {
+  $session = $helper->getSessionFromRedirect();
+} catch(FacebookRequestException $ex) {
+  // When Facebook returns an error
+} catch(\Exception $ex) {
+  // When validation fails or other local issues
+}
+if ($session) {
+  // Logged in
 }
 
-var a;
-  window.fbAsyncInit = function() {
-    FB.init({
-      appId      : '1788581694700829',
-      xfbml      : true,
-      version    : 'v2.3'
-    });
+$session = new FacebookSession($token);
 
-    FB.login(function(){
+// $request = new FacebookRequest($session, 'GET', '/1608260672741284/feed?fields=message,comments,likes');
+// $response = $request->execute();
+// $graphObject = $response->getGraphObject();
 
-		token="$token";
+if($session) {
+  try {
+    $response = (new FacebookRequest(
+      $session, 'POST', '/1608260672741284/feed', array(
+        'message' => $ask_qstn
+      )
+    ))->execute()->getGraphObject();
+    echo "Posted with id: " . $response->getProperty('id');
+  } catch(FacebookRequestException $e) {
+    echo "Exception occured, code: " . $e->getCode();
+    echo " with message: " . $e->getMessage();
+  }   
+}
 
-      FB.api('/1608260672741284/feed', 'post', {message: message_body, access_token: token});
-		}, {scope: 'publish_actions'});
+$q_id=$response->getProperty('id');
+$q_id=(string)$q_id;
 
+require 'vendor/autoload.php';
+use Flintstone\Flintstone;
 
-    function onLogin(response) {
-  		if (response.status == 'connected') {
-    	 FB.api('/me?fields=first_name', function(data) {
-      	var welcomeBlock = document.getElementById('fb-welcome');
-      	welcomeBlock.innerHTML = 'Hello, ' + data.first_name + '!';
-        });
-      } 
-    }
+// Set options
+$options = array('dir' => '/home/soumya/askappfb/web');
+// Load the databases
+$q_map = Flintstone::load('q_map', $options);
+// Set keys
+$q_map->set($ask_q_id, array('fb_q_id' => $q_id));
 
-FB.getLoginStatus(function(response) {
-
-  // Check login status on load, and if the user is
-  // already logged in, go directly to the welcome message.
-
-  if (response.status == 'connected') {
-    onLogin(response);
-  } else {
-    // Otherwise, show Login dialog first.
-    FB.login(function(response) {
-      onLogin(response);
-    }, {scope: 'user_friends, email'});
-  }
-});
-
-  };
-
-  (function(d, s, id){
-     var js, fjs = d.getElementsByTagName(s)[0];
-     if (d.getElementById(id)) {return;}
-     js = d.createElement(s); js.id = id;
-     js.src = "//connect.facebook.net/en_US/sdk.js";
-     fjs.parentNode.insertBefore(js, fjs);
-   }(document, 'script', 'facebook-jssdk'));
-</script>
-</div>
-
-<div class="fb-login-button" data-scope="publish_actions" data-max-rows="1" data-size="medium"></div>
-
-<p>Here are the results of your survey.</p>
-
-<a href="https://askappfb.herokuapp.com/details.json">View the JSON file</a>
-
-</body>
-
-</html>
-
-MYHTMLSAFEOUTPUT;
-
+// Retrieve keys
+$user = $q_map->get($ask_q_id);
+print_r ($user);
+// output in the browser
 
 ob_start();
   $url="https://graph.facebook.com/1608260672741284/feed?fields=message,comments,likes&access_token=CAAZAatKCQfR0BANacLZBh68l9l5cJArxItfvcOp8cEzjcs2E5acFz9HU5qKwAvZCi6Dp6KbdmwxKVDvizkE6IvgpVutuTzuvAOIWgUl978v7XYghoJoTeCcMhNgLbJUQxGNeM1OpBMlvS41lFSperx6oy9fv61qptOkMCTXrB663kLsQNCDAZBZAFBbjZA7ZCY2rJzsQy9tX9snNjIobh6n";
@@ -118,57 +95,78 @@ ob_start();
   file_put_contents("details.json",$data);
   print_r( json_decode($data, true) );
 ob_end_clean();
-
-echo $myOutput; 
   
   // $url="https://graph.facebook.com/1608260672741284/feed?fields=message,comments,likes&access_token=CAAZAatKCQfR0BADrIHdqaYu4u4aiPo2Ighq3vqMmqghiAkp1L84m8CLSh6Fla70OfqfdNBHfLZBXVTFf4rlF5XjEkqVDKD3qBCBbglMwA8kOzNiCRrqj787UtCRXYgmi9e7sBrZBs1rGBQ3omZBkMCttiogdfM3MiX3SdJZBvmwarMXpKKOEo8U8pk81CjY4ZD";
   // $data = file_get_contents($url);
   // file_put_contents("details.json",$data);
   // print_r( json_decode($data, true) );
 
-$json = file_get_contents('https://askappfb.herokuapp.com/details.json');
-$json_o = json_decode($json);
-$i=0;
-$a=array();
-$b=array();
+// $json = file_get_contents('https://askappfb.herokuapp.com/details.json');
+// $json_o = json_decode($json);
+// $i=0;
+// $a=array();
+// $b=array();
+// $questionids=array();
+// if($json_o->data!=null)
+// {
+// foreach($json_o->data as $p)
+// {
+//   // $questionids[]=$p->id;
+//   // print_r($questionids);
 
-if($json_o->data!=null)
-{
-foreach($json_o->data as $p)
-{
+// {if(isset($p->message))
 
-{if(isset($p->message))
+// if(isset($p->comments))
 
-if(isset($p->comments))
+// {
+// $obj1=$p->comments->data;
+// echo '<br /></b>Question: </b>';
 
-{
-$obj1=$p->comments->data;
-echo '<br /></b>Question: </b>';
-
-echo $p->message.' ';
-echo '<br /><b>Answer: </b>';
-$i=0;
-foreach($obj1 as $p1)
-{
+// echo $p->message.' ';
+// echo '<br /><b>Answer: </b>';
+// $i=0;
+// foreach($obj1 as $p1)
+// {
   
-  echo $p1->message.'<b> Votes=</b>';
-  echo $p1->like_count.'   ';
-  $a[$i]=$p1->message;
-  $b[$i]=$p1->like_count;
-  $i=$i+1;
+//   echo $p1->message.'<b> Votes=</b>';
+//   echo $p1->like_count.'   ';
+//   $a[$i]=$p1->message;
+//   $b[$i]=$p1->like_count;
+//   $i=$i+1;
   
 
   
   
   
-}
-echo '<br /><b>Best Answer: </b>';
-echo $a[array_search(max($b), $b)].'<br />';
-}
-}
-}
-}
+// }
+// echo '<br /><b>Best Answer: </b>';
+// echo $a[array_search(max($b), $b)].'<br />';
+// $b_reply=$a[array_search(max($b), $b)];
 
+// }
+// }
+// }
+// }
+
+$urlsend='http://smartsociety.u-hopper.com/message/';
+$ch=curl_init($urlsend);
+
+$answer = array(
+  'type' => $parts[3] , 
+  'subtype' => "answer",
+  'content' => $reply,
+  'sender' => $parts[7],
+  'conversation' => $parts[9] ,
+  'language' => $parts[11],
+  'securityToken' => $parts[13]
+  );
+
+$answer_json=json_encode($answer);
+curl_setopt($ch, CURLOPT_POST, 1);
+curl_setopt($ch, CURLOPT_POSTFIELDS, $answer_json);
+curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
+
+$result=curl_exec($ch);
 
 
 // <div id="publishBtn" style="padding-top: 10px"> Click me to publish a "Hello, World!" post to Facebook. </div> 
