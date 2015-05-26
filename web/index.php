@@ -1,23 +1,23 @@
 <?php
 
-// header("Refresh: 10;");
-
 $string=file_get_contents("php://input");
-
-// $string='{
-//     "id": "4a11c9f1-a603-11e4-b25d-0eec4dbb1c61",
-//     "content": "{\"question\":\"Is it working s again?\",\"type\":\"DIRECT\",\"timestamp\":1422349376846}",
-//     "type": "ask",
-//     "subtype": "question",
-//     "sender": "ask",
-//     "conversation": "4a11c9f0-a603-11e4-b25d-0eec4dbb1c61",
-//     "ttl": "0"
-// }';
-
+$string='{
+    "id": "4a11c9f1-a603-11e4-b25d-0eec4dbb1c61",
+    "content": "{\"question\":\"Is it working s again?\",\"type\":\"DIRECT\",\"timestamp\":1422349376846}",
+    "type": "ask",
+    "subtype": "question",
+    "sender": "ask",
+    "conversation": "4a11c9f0-a603-11e4-b25d-0eec4dbb1c61",
+    "ttl": "0"
+}';
 $string=json_decode($string,true);
-$ask_q_id=$string['id'];
-$content=$string['content'];
-$con=json_decode($content);
+$ask_id=$string['id'];
+$ask_content=$string['content'];
+$ask_conversation=$string['conversation'];
+$ask_type=$string['type'];
+$ask_sender=$string['sender'];
+
+$con=json_decode($ask_content);
 $ask_qstn=$con->question;
 $token="CAAZAatKCQfR0BAOCMELSVBZAkkJms3usEGgQgSyShdeVWhkijtuUhDE12ZA2ZCR0awpT5hZB4Xom2lhOZCreAgGupDZCnN93ltWMJGoeBzxTBiA08r8QXlbXeS1WuRSxlny8s0a6frcZAJILzZAOni8S8ORZA4fs3oy1KoM40VAdqU5dfjYziYcF8o";
 
@@ -37,7 +37,7 @@ use Facebook\FacebookRedirectLoginHelper;
 
 FacebookSession::setDefaultApplication('1788581694700829', 'd95dde9374fe7d3715007c27db6a74a4');
 
-$helper = new FacebookRedirectLoginHelper('https://askappfb.herokuapp.com/index2.php');
+$helper = new FacebookRedirectLoginHelper('https://askappfb.herokuapp.com/index.php');
 $loginUrl = $helper->getLoginUrl();
 
 try {
@@ -82,11 +82,8 @@ $options = array('dir' => '/home/soumya/askappfb/web');
 // Load the databases
 $q_map = Flintstone::load('q_map', $options);
 // Set keys
-$q_map->set($ask_q_id, array('fb_q_id' => $q_id));
+$q_map->set($q_id, array('ask_con' => $ask_conversation, 'ask_id' => $ask_id, 'ask_type' => $ask_type, 'ask_sender' => $ask_sender));
 
-// Retrieve keys
-$user = $q_map->get($ask_q_id);
-print_r ($user);
 // output in the browser
 
 ob_start();

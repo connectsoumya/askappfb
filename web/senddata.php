@@ -1,10 +1,6 @@
 <?php
 
-$_GET['hub_challenge'];
-echo 'mmnet_project';
-$_GET['hub_verify_token'];
-echo 'mmnetaskapp';
-
+// header("Refresh: 10;");
 
 session_start();
  
@@ -34,36 +30,34 @@ if ($session) {
   // Logged in
 }
 
-// $session = new FacebookSession($app_token);
-
-// $request = new FacebookRequest(
-//   $session,
-//   'GET',
-//   '/1788581694700829/subscriptions'
-// );
-// $response = $request->execute();
-// $graphObject = $response->getGraphObject();
-
-
+$session = new FacebookSession($token);
 $request = new FacebookRequest(
   $session,
-  'POST',
-  '/1788581694700829/subscriptions',
-  array (
-    'object' => 'page',
-    'callback_url' => 'https///askappfb.herokuapp.com/senddata.php',
-    'fields' => 'feed',
-    'verify_token' => 'mmnetaskapp',
-  )
+  'GET',
+  '/1608260672741284/notifications'
 );
 $response = $request->execute();
 $graphObject = $response->getGraphObject();
-/* handle the result */
+$album =  $graphObject->getProperty('data');
+$album_data = $album->asArray();
+foreach($album_data as $row){
+    $q_id=$row->object->id;
+    }
+
+require 'vendor/autoload.php';
+use Flintstone\Flintstone;
+
+// Set options
+$options = array('dir' => '/home/soumya/askappfb/web');
+// Load the databases
+$q_map = Flintstone::load('q_map', $options);
+// Retrieve keys
+$user = $q_map->get($q_id);
+print_r ($user);
 
 
-print_r($graphObject);
-$answer_json=json_encode($graphObject);
-file_put_contents('not.json', $graphObject);
+
+
 
 $urlsend='http://smartsociety.u-hopper.com/message/';
 $ch=curl_init($urlsend);
