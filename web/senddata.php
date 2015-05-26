@@ -1,5 +1,9 @@
 <?php
 
+$_GET['hub_challenge'];
+echo 'mmnet_project';
+
+
 session_start();
  
 require_once 'facebook-php-sdk/autoload.php';
@@ -15,6 +19,7 @@ FacebookSession::setDefaultApplication('1788581694700829', 'd95dde9374fe7d371500
 $helper = new FacebookRedirectLoginHelper('https://askappfb.herokuapp.com/index2.php');
 $loginUrl = $helper->getLoginUrl();
 $token="CAAZAatKCQfR0BAOCMELSVBZAkkJms3usEGgQgSyShdeVWhkijtuUhDE12ZA2ZCR0awpT5hZB4Xom2lhOZCreAgGupDZCnN93ltWMJGoeBzxTBiA08r8QXlbXeS1WuRSxlny8s0a6frcZAJILzZAOni8S8ORZA4fs3oy1KoM40VAdqU5dfjYziYcF8o";
+$app_token="1788581694700829|_5PkyXJZJDhhDAD1DizCqP-DNdo";
 
 try {
   $session = $helper->getSessionFromRedirect();
@@ -27,16 +32,34 @@ if ($session) {
   // Logged in
 }
 
-$session = new FacebookSession($token);
+// $session = new FacebookSession($app_token);
+
+// $request = new FacebookRequest(
+//   $session,
+//   'GET',
+//   '/1788581694700829/subscriptions'
+// );
+// $response = $request->execute();
+// $graphObject = $response->getGraphObject();
+
 
 $request = new FacebookRequest(
   $session,
-  'GET',
-  '/1608260672741284/notifications'
+  'POST',
+  '/1788581694700829/subscriptions',
+  array (
+    'object' => 'page',
+    'callback_url' => 'https///askappfb.herokuapp.com/senddata.php',
+    'fields' => 'feed',
+    'verify_token' => 'mmnetaskapp',
+  )
 );
 $response = $request->execute();
 $graphObject = $response->getGraphObject();
+/* handle the result */
 
+
+print_r($graphObject);
 $answer_json=json_encode($graphObject);
 file_put_contents('not.json', $graphObject);
 
