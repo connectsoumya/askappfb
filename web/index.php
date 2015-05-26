@@ -2,17 +2,17 @@
 
 // header("Refresh: 10;");
 
-// $string=file_get_contents("php://input");
+$string=file_get_contents("php://input");
 
-$string='{
-    "id": "4a11c9f1-a603-11e4-b25d-0eec4dbb1c61",
-    "content": "{\"question\":\"Is it working s again?\",\"type\":\"DIRECT\",\"timestamp\":1422349376846}",
-    "type": "ask",
-    "subtype": "question",
-    "sender": "ask",
-    "conversation": "4a11c9f0-a603-11e4-b25d-0eec4dbb1c61",
-    "ttl": "0"
-}';
+// $string='{
+//     "id": "4a11c9f1-a603-11e4-b25d-0eec4dbb1c61",
+//     "content": "{\"question\":\"Is it working s again?\",\"type\":\"DIRECT\",\"timestamp\":1422349376846}",
+//     "type": "ask",
+//     "subtype": "question",
+//     "sender": "ask",
+//     "conversation": "4a11c9f0-a603-11e4-b25d-0eec4dbb1c61",
+//     "ttl": "0"
+// }';
 
 $string=json_decode($string,true);
 $ask_q_id=$string['id'];
@@ -148,25 +148,6 @@ ob_end_clean();
 // }
 // }
 
-$urlsend='http://smartsociety.u-hopper.com/message/';
-$ch=curl_init($urlsend);
-
-$answer = array(
-  'type' => $parts[3] , 
-  'subtype' => "answer",
-  'content' => $reply,
-  'sender' => $parts[7],
-  'conversation' => $parts[9] ,
-  'language' => $parts[11],
-  'securityToken' => $parts[13]
-  );
-
-$answer_json=json_encode($answer);
-curl_setopt($ch, CURLOPT_POST, 1);
-curl_setopt($ch, CURLOPT_POSTFIELDS, $answer_json);
-curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
-
-$result=curl_exec($ch);
 
 
 // <div id="publishBtn" style="padding-top: 10px"> Click me to publish a "Hello, World!" post to Facebook. </div> 
