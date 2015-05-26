@@ -2,6 +2,8 @@
 
 $_GET['hub_challenge'];
 echo 'mmnet_project';
+$_GET['hub_verify_token'];
+echo 'mmnetaskapp';
 
 
 session_start();
