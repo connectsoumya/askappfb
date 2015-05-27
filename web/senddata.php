@@ -87,7 +87,7 @@ echo $reply;
 require '../vendor/autoload.php';
 use Flintstone\Flintstone;
 // Set options
-$options = array('dir' => '/app');
+$options = array('dir' => '/app/web');
 // Load the databases
 $q_map = Flintstone::load('q_map', $options);
 // Retrieve keys
