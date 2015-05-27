@@ -72,7 +72,7 @@ if($session) {
 $q_id=$response->getProperty('id');
 $q_id=(string)$q_id;
 
-require 'vendor/autoload.php';
+// require 'vendor/autoload.php';
 use Flintstone\Flintstone;
 
 // Set options
