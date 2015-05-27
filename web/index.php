@@ -76,7 +76,7 @@ require '../vendor/autoload.php';
 use Flintstone\Flintstone;
 
 // Set options
-$options = array('dir' => '/app/Flintstone/');
+$options = array('dir' => '/app/Flintstone');
 // Load the databases
 $q_map = Flintstone::load('q_map', $options);
 // Set keys
