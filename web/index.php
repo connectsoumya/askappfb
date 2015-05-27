@@ -3,15 +3,15 @@
 // Read and decode the post request
 
 $string=file_get_contents("php://input");
-$string='{
-    "id": "4a11c9f1-a603-11e4-b25d-0e784dbb1c61",
-    "content": "{\"question\":\"Is it successful?\",\"type\":\"DIRECT\",\"timestamp\":1422349376846}",
-    "type": "ask",
-    "subtype": "question",
-    "sender": "ask",
-    "conversation": "4a11c9f0-a603-11e4-b25d-0eesddbb1c61",
-    "ttl": "0"
-}';
+// $string='{
+//     "id": "4a11c9f1-a603-11e4-b25d-0e784dbb1c61",
+//     "content": "{\"question\":\"Is it successful?\",\"type\":\"DIRECT\",\"timestamp\":1422349376846}",
+//     "type": "ask",
+//     "subtype": "question",
+//     "sender": "ask",
+//     "conversation": "4a11c9f0-a603-11e4-b25d-0eesddbb1c61",
+//     "ttl": "0"
+// }';
 $string=json_decode($string,true);
 $ask_id=$string['id'];
 $ask_content=$string['content'];
