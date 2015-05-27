@@ -137,6 +137,6 @@ $opts = array('http' =>
 $context = stream_context_create($opts);
 
 # Get the response (you can use this for GET)
-$result = file_get_contents('test.php', false, $context);
+$result = file_get_contents('http://askappfb.herokuapp.com/test.php', false, $context);
 
 ?>
