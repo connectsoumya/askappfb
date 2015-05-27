@@ -8,5 +8,8 @@
   },
   "require" : {
     "fire015/flintstone": "1.*"
+  },
+  "require" : {
+    "ext-mbstring": "*"
   }
 }
