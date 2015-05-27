@@ -61,10 +61,13 @@ if($session) {
     ))->execute()->getGraphObject();
     echo "Posted with id: " . $response->getProperty('id');
   } catch(FacebookRequestException $e) {
-    echo "Exception occured, code: " . $e->getCode();
-    echo " with message: " . $e->getMessage();
+    http_response_code($e->getCode); 
+    echo "Error: " . $e->getMessage();
+    exit()
   }   
 }
+
+
 
 $q_id=$response->getProperty('id');
 $q_id=(string)$q_id;
