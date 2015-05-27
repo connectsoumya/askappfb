@@ -10,6 +10,6 @@
     "fire015/flintstone": "1.*"
   },
   "require" : {
-    "mbstring": "*"
+    "ext-mbstring": "*"
   }
 }
