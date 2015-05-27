@@ -84,7 +84,7 @@ echo $reply;
 
 // Retrieve details from database
 
-require 'vendor/autoload.php';
+require '../vendor/autoload.php';
 use Flintstone\Flintstone;
 // Set options
 $options = array('dir' => '/app');
