@@ -96,23 +96,8 @@ $user = $q_map->get($q_id);
 
 // Post the JSON
 
-// $urlsend='https://askappfb.herokuapp.com/test.php';//'http://smartsociety.u-hopper.com/message/';
-// $ch=curl_init($urlsend);
-// $answer = array(
-//   'type' => $user['ask_type'] , 
-//   'subtype' => "answer",
-//   'content' => $reply,
-//   'sender' => $user['ask_sender'],
-//   'conversation' => $user['ask_con'] ,
-//   'language' => '',
-//   'securityToken' =>''
-//   );
-// $answer_json=json_encode($answer);
-// curl_setopt($ch, CURLOPT_POST, 1);
-// curl_setopt($ch, CURLOPT_POSTFIELDS, $answer_json);
-// curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
-// $result=curl_exec($ch);
-
+$urlsend='http://askappfb.herokuapp.com/test.php';//'http://smartsociety.u-hopper.com/message/';
+$ch=curl_init($urlsend);
 $answer = array(
   'type' => $user['ask_type'] , 
   'subtype' => "answer",
@@ -123,20 +108,36 @@ $answer = array(
   'securityToken' =>''
   );
 $answer_json=json_encode($answer);
-print_r($answer);
-# Form our options
-$opts = array('http' =>
-    array(
-        'method'  => 'POST',
-        'header'  => 'Content-type: application/json',
-        'content' => $answer_json
-    )
-);
+curl_setopt($ch, CURLOPT_URL, $urlsend);
+curl_setopt($ch, CURLOPT_POST, 1);
+curl_setopt($ch, CURLOPT_POSTFIELDS, $answer_json);
+curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
+$result=curl_exec($ch);
 
-# Create the context
-$context = stream_context_create($opts);
+// $answer = array(
+//   'type' => $user['ask_type'] , 
+//   'subtype' => "answer",
+//   'content' => $reply,
+//   'sender' => $user['ask_sender'],
+//   'conversation' => $user['ask_con'] ,
+//   'language' => '',
+//   'securityToken' =>''
+//   );
+// $answer_json=json_encode($answer);
+// print_r($answer);
+// # Form our options
+// $opts = array('http' =>
+//     array(
+//         'method'  => 'POST',
+//         'header'  => 'Content-type: application/json',
+//         'content' => $answer_json
+//     )
+// );
 
-# Get the response (you can use this for GET)
-$result = file_get_contents('http://askappfb.herokuapp.com/test.php', false, $context);
+// # Create the context
+// $context = stream_context_create($opts);
+
+// # Get the response (you can use this for GET)
+// $result = file_get_contents('http://askappfb.herokuapp.com/test.php', false, $context);
 
 ?>
