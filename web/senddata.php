@@ -87,7 +87,7 @@ echo $reply;
 require 'vendor/autoload.php';
 use Flintstone\Flintstone;
 // Set options
-$options = array('dir' => '/home/soumya/askappfb/web');
+$options = array('dir' => '/app');
 // Load the databases
 $q_map = Flintstone::load('q_map', $options);
 // Retrieve keys
