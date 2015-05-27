@@ -63,7 +63,7 @@ if($session) {
   } catch(FacebookRequestException $e) {
     http_response_code($e->getCode); 
     echo "Error: " . $e->getMessage();
-    exit()
+    exit();
   }   
 }
 
