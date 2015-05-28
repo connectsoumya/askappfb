@@ -109,6 +109,14 @@ $answer = array(
   'language' => '',
   'securityToken' =>''
   );
+
+$myOutput = <<<MYHTMLSAFEOUTPUT
+
+print_r($answer);
+
+MYHTMLSAFEOUTPUT;
+echo $myOutput;
+
 $answer_json=json_encode($answer);
 curl_setopt($ch, CURLOPT_URL, $urlsend);
 curl_setopt($ch, CURLOPT_POST, 1);

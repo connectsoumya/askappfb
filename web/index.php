@@ -67,7 +67,7 @@ if($session) {
   }   
 }
 
-
+// Extract the post ID returned from facebook
 
 $q_id=$response->getProperty('id');
 $q_id=(string)$q_id;
@@ -84,12 +84,12 @@ $q_map->set($q_id, array('ask_con' => $ask_conversation, 'ask_id' => $ask_id, 'a
 
 // output in the browser
 
-ob_start();
-  $url="https://graph.facebook.com/1608260672741284/feed?fields=message,comments,likes&access_token=CAAZAatKCQfR0BANacLZBh68l9l5cJArxItfvcOp8cEzjcs2E5acFz9HU5qKwAvZCi6Dp6KbdmwxKVDvizkE6IvgpVutuTzuvAOIWgUl978v7XYghoJoTeCcMhNgLbJUQxGNeM1OpBMlvS41lFSperx6oy9fv61qptOkMCTXrB663kLsQNCDAZBZAFBbjZA7ZCY2rJzsQy9tX9snNjIobh6n";
-  $data = file_get_contents($url);
-  file_put_contents("details.json",$data);
-  print_r( json_decode($data, true) );
-ob_end_clean();
+// ob_start();
+//   $url="https://graph.facebook.com/1608260672741284/feed?fields=message,comments,likes&access_token=CAAZAatKCQfR0BANacLZBh68l9l5cJArxItfvcOp8cEzjcs2E5acFz9HU5qKwAvZCi6Dp6KbdmwxKVDvizkE6IvgpVutuTzuvAOIWgUl978v7XYghoJoTeCcMhNgLbJUQxGNeM1OpBMlvS41lFSperx6oy9fv61qptOkMCTXrB663kLsQNCDAZBZAFBbjZA7ZCY2rJzsQy9tX9snNjIobh6n";
+//   $data = file_get_contents($url);
+//   file_put_contents("details.json",$data);
+//   print_r( json_decode($data, true) );
+// ob_end_clean();
   
   // $url="https://graph.facebook.com/1608260672741284/feed?fields=message,comments,likes&access_token=CAAZAatKCQfR0BADrIHdqaYu4u4aiPo2Ighq3vqMmqghiAkp1L84m8CLSh6Fla70OfqfdNBHfLZBXVTFf4rlF5XjEkqVDKD3qBCBbglMwA8kOzNiCRrqj787UtCRXYgmi9e7sBrZBs1rGBQ3omZBkMCttiogdfM3MiX3SdJZBvmwarMXpKKOEo8U8pk81CjY4ZD";
   // $data = file_get_contents($url);
