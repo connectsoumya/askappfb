@@ -82,6 +82,8 @@ if($json_o->data!=null)
 
 echo $reply;
 
+
+
 // Retrieve details from database
 
 require '../vendor/autoload.php';

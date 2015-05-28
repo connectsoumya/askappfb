@@ -2,8 +2,9 @@
   "require" : {
     "silex/silex": "~1.1",
     "monolog/monolog": "~1.7",
-     "ext-mbstring": "*",
-      "facebook/php-sdk-v4": "4.0.*",
-      "fire015/flintstone": "1.*"
+    "ext-mbstring": "*",
+    "facebook/php-sdk-v4": "4.0.*",
+    "fire015/flintstone": "1.*",
+    "ext-mongo": "*"
   }
 }
