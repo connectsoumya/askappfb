@@ -110,7 +110,7 @@ $answer = array(
   'securityToken' =>''
   );
 
-echo "print_r($answer)";
+print_r($answer);
 
 $answer_json=json_encode($answer);
 curl_setopt($ch, CURLOPT_URL, $urlsend);
