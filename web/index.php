@@ -76,7 +76,7 @@ require '../vendor/autoload.php';
 use Flintstone\Flintstone;
 
 // Set options
-$options = array('dir' => '/app/web');
+$options = array('dir' => '../');
 // Load the databases
 $q_map = Flintstone::load('q_map', $options);
 // Set keys
@@ -143,17 +143,5 @@ $q_map->set($q_id, array('ask_con' => $ask_conversation, 'ask_id' => $ask_id, 'a
 // }
 // }
 
-
-
-// <div id="publishBtn" style="padding-top: 10px"> Click me to publish a "Hello, World!" post to Facebook. </div> 
-// <script>
-// document.getElementById('publishBtn').onclick = function() {
-//   FB.api('/1608260672741284/feed', 'post', {message: 'Hello, world!', access_token: 'CAAZAatKCQfR0BAO8JaBcFJXRns5whf4CyNhjA6EJ1tWwUSPOTLB99XldBMwXJOXpAsIIvHOjhkKMnuo4dpkNJMZBgvZBkEHqK3EIReb3vJoyavKYZBBxG5OuddAwo48jTo6HF0ieSX3XEzrZAqGSRLemMJxtV2SNYCoGfvR6UmmmZCoNanU6rf1YjZCH0vv3dBwixAyFR5lsAZDZD'}, function(response) {
-//     Log.info('API response', response);
-//     document.getElementById('publishBtn').innerHTML = 'API response is ' + response.id;
-//   });
-//   return false;
-// }  
-// </script>
 
 ?>
