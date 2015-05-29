@@ -95,7 +95,7 @@ $seedData = array(
 
 // connect to mongolab
 
-$uri = "mongodb://pritam.b.:@ds037262.mongolab.com:37262/ask";
+$uri = "mongodb://pritam.b.:pritam@1@ds037262.mongolab.com:37262/ask";
 $options = array("connectTimeoutMS" => 30000);
 $client = new MongoClient($uri, $options );
 $db = $client->selectDB("ask");
