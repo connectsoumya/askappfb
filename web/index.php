@@ -96,12 +96,13 @@ $seedData = array(
 // connect to mongolab
 
 $uri = "mongodb://pritam.b.:pritam@1@ds037262.mongolab.com:37262/ask";
-$options = array("connectTimeoutMS" => 30000);
-$client = new MongoClient($uri, $options );
+// $options = array("connectTimeoutMS" => 30000);
+$client = new MongoClient($uri);
 $db = $client->selectDB("ask");
 
 $ask_data = $db->ask_data;
 $ask_data->batchInsert($seedData);
+
 
 
 
