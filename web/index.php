@@ -72,37 +72,36 @@ if($session) {
 $q_id=$response->getProperty('id');
 $q_id=(string)$q_id;
 
-// require '../vendor/autoload.php';
-// use Flintstone\Flintstone;
+require '../vendor/autoload.php';
+use Flintstone\Flintstone;
 
-// // Set options
-// $options = array('dir' => '../');
-// // Load the databases
-// $q_map = Flintstone::load('q_map', $options);
-// // Set keys
-// $q_map->set($q_id, array('ask_con' => $ask_conversation, 'ask_id' => $ask_id, 'ask_type' => $ask_type, 'ask_sender' => $ask_sender));
+// Set options
+$options = array('dir' => '../');
+// Load the databases
+$q_map = Flintstone::load('q_map', $options);
+// Set keys
+$q_map->set($q_id, array('ask_con' => $ask_conversation, 'ask_id' => $ask_id, 'ask_type' => $ask_type, 'ask_sender' => $ask_sender));
 
 
-// Create seed data
-$seedData = array(
-    array(
-        'ask_con' => $ask_conversation, 
-        'ask_id' => $ask_id,
-        'ask_type' => $ask_type, 
-        'ask_sender' => $ask_sender
-    ),
-);
+// // Create seed data
+// $seedData = array(
+//     array(
+//         'ask_con' => $ask_conversation, 
+//         'ask_id' => $ask_id,
+//         'ask_type' => $ask_type, 
+//         'ask_sender' => $ask_sender
+//     ),
+// );
 
-// connect to mongolab
+// // connect to mongolab
 
-$uri = "mongodb://pritam.b.:pritam-1@ds037262.mongolab.com:37262/ask";
-// $uri = "mongodb:///tmp/mongodb-37262.sock";
-$options = array("connectTimeoutMS" => 30000);
-$client = new Mongo($uri,$options);
-$db = $client->selectDB("ask");
+// $uri = "mongodb://pritam.b.:pritam-1@ds037262.mongolab.com:37262/ask";
+// $options = array("connectTimeoutMS" => 30000);
+// $client = new MongoClient($uri,$options);
+// $db = $client->selectDB("ask");
 
-$ask_data = $db->ask_data;
-$ask_data->batchInsert($seedData);
+// $ask_data = $db->ask_data;
+// $ask_data->batchInsert($seedData);
 
 
 
