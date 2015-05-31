@@ -22,7 +22,7 @@ ext-mbstring
 3) In line 38 of 'index.php' and line 16 of 'senddata.php', change the URL to your own home page URL for your app.
 4) In line 58 of 'index.php' and line 37 of 'senddata.php', change the number with your own facebook page ID.
 5) In line 59 of 'senddata.php', change the URL as per the following:
-		https://graph.facebook.com/<YOUR PAGE ID>/feed?fields=message%2Ccomments%2Clikes&access_token=<YOUR PAGE ACCESS TOKEN>
+		https://graph.facebook.com/YOUR PAGE ID/feed?fields=message%2Ccomments%2Clikes&access_token=<YOUR PAGE ACCESS TOKEN>
 
 ### Experiments and Results
 
